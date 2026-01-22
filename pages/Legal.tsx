@@ -19,14 +19,14 @@ const Legal: React.FC = () => {
                     <section>
                         <h3 className="text-xl font-bold text-white uppercase tracking-wide mb-4">Terms of Service</h3>
                         <p className="mb-4">
-                            By using this website, you agree to our terms. All content is copyright Zac Javid Personal Training.
+                            By using this website, you agree to our terms. All content is copyright Strong Performance.
                         </p>
                     </section>
 
                     <section>
                         <h3 className="text-xl font-bold text-white uppercase tracking-wide mb-4">Medical Disclaimer</h3>
                         <p className="mb-4">
-                            Consult with a physician before beginning any exercise program. Zac Javid Personal Training is not responsible for any injuries sustained during training.
+                            Consult with a physician before beginning any exercise program. Strong Performance is not responsible for any injuries sustained during training.
                         </p>
                     </section>
 

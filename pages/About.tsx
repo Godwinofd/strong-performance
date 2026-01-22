@@ -10,7 +10,7 @@ const About: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000"
-            alt="Zac Javid"
+            alt="Strong Performance"
             className="w-full h-full object-cover grayscale brightness-[0.12] scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-obsidian via-transparent to-obsidian"></div>
@@ -76,24 +76,10 @@ const About: React.FC = () => {
               <div className="relative aspect-[4/5] rounded-[40px] md:rounded-[50px] overflow-hidden border border-white/10 bg-charcoal/20">
                 <img
                   src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2000"
-                  alt="Zac Javid Coaching"
+                  alt="Strong Performance Coaching"
                   className="w-full h-full object-cover grayscale opacity-40 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
-
-                {/* Authority Badge overlay */}
-                <div className="absolute top-6 left-6 md:top-10 md:left-10 p-5 md:p-8 bg-black/90 backdrop-blur-2xl border border-white/10 rounded-[25px] md:rounded-[30px] flex items-center gap-4 md:gap-5 shadow-2xl max-w-[calc(100%-3rem)]">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="w-5 h-5 md:w-7 md:h-7 text-scarlet" />
-                  </div>
-                  <div>
-                    <div className="flex gap-1 mb-1">
-                      {[...Array(5)].map((_, i) => <Star key={i} className="w-2.5 h-2.5 md:w-3 md:h-3 fill-yellow-500 text-yellow-500" />)}
-                    </div>
-                    <p className="text-white font-black text-[8px] md:text-[10px] uppercase tracking-widest leading-tight">Verified Oxford Leader</p>
-                    <p className="text-white/40 text-[7px] font-bold uppercase tracking-widest mt-0.5">EST. 2019</p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -235,17 +221,17 @@ const About: React.FC = () => {
                   </div>
 
                   <form className="space-y-6">
-                    <div className="space-y-2">
+                    <div className="space-y-2 text-left">
                       <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Your Name</label>
-                      <input type="text" placeholder="Your name" className="w-full bg-charcoal/40 border border-white/5 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet transition-all shadow-inner" />
+                      <input type="text" placeholder="Your name" className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet focus:bg-white/10 transition-all shadow-inner" />
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 text-left">
                       <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Email Address</label>
-                      <input type="email" placeholder="your@email.com" className="w-full bg-charcoal/40 border border-white/5 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet transition-all shadow-inner" />
+                      <input type="email" placeholder="your@email.com" className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet focus:bg-white/10 transition-all shadow-inner" />
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 text-left">
                       <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Your Goals</label>
-                      <textarea rows={4} placeholder="Tell us about your fitness goals..." className="w-full bg-charcoal/40 border border-white/5 p-6 rounded-[25px] outline-none text-white text-sm resize-none focus:border-scarlet transition-all shadow-inner"></textarea>
+                      <textarea rows={4} placeholder="Tell us about your fitness goals..." className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm resize-none focus:border-scarlet focus:bg-white/10 transition-all shadow-inner"></textarea>
                     </div>
 
                     <div className="pt-8">

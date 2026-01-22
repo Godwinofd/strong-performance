@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Instagram, Clock, MapPin, Send, ArrowRight, Star, Quote, CheckCircle2 } from 'lucide-react';
+import { Mail, Instagram, Clock, MapPin, Send, ArrowRight, Star, Quote, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
@@ -78,61 +78,38 @@ const Contact: React.FC = () => {
             {/* Right Side: Optimized Contact Form */}
             <div className="lg:col-span-6 flex justify-center lg:justify-end reveal active">
               <div className="max-w-xl w-full">
-                <div className="bg-black/95 backdrop-blur-2xl p-10 rounded-[35px] border border-white/10 shadow-2xl relative">
-                  <div className="mb-10">
-                    <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-2">Bespoke Request</h3>
-                    <p className="text-steel text-xs font-bold uppercase tracking-widest">Initial Inquiry Phase • Unit ZJ-01</p>
+                <div className="bg-black/95 backdrop-blur-3xl p-10 md:p-14 rounded-[50px] border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] relative">
+                  <div className="mb-12">
+                    <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-3">Get In Touch</h3>
+                    <p className="text-steel text-sm font-medium opacity-60">Ready to start your transformation?</p>
                   </div>
 
                   <form className="space-y-6">
-                    <div className="space-y-1.5">
-                      <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.2em] ml-2">Full Name</label>
-                      <input
-                        type="text"
-                        placeholder="e.g. Jane Smith"
-                        className="w-full bg-charcoal/40 border border-white/5 p-5 rounded-[20px] outline-none text-white text-sm focus:border-scarlet/50 transition-all"
-                      />
+                    <div className="space-y-2 text-left">
+                      <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Your Name</label>
+                      <input type="text" placeholder="Your name" className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet focus:bg-white/10 transition-all shadow-inner" />
+                    </div>
+                    <div className="space-y-2 text-left">
+                      <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Email Address</label>
+                      <input type="email" placeholder="your@email.com" className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet focus:bg-white/10 transition-all shadow-inner" />
+                    </div>
+                    <div className="space-y-2 text-left">
+                      <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Your Goals</label>
+                      <textarea rows={4} placeholder="Tell us about your fitness goals..." className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm resize-none focus:border-scarlet focus:bg-white/10 transition-all shadow-inner"></textarea>
                     </div>
 
-                    <div className="space-y-1.5">
-                      <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.2em] ml-2">Secure Email</label>
-                      <input
-                        type="email"
-                        placeholder="email@example.com"
-                        className="w-full bg-charcoal/40 border border-white/5 p-5 rounded-[20px] outline-none text-white text-sm focus:border-scarlet/50 transition-all"
-                      />
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.2em] ml-2">Primary Objective</label>
-                      <select className="w-full bg-charcoal/40 border border-white/5 p-5 rounded-[20px] outline-none text-white/60 text-sm focus:border-scarlet/50 transition-all appearance-none cursor-pointer">
-                        <option>Weight Loss Transformation</option>
-                        <option>HYROX Performance</option>
-                        <option>Strength & Conditioning</option>
-                        <option>General Functional Fitness</option>
-                      </select>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.2em] ml-2">Inquiry Details</label>
-                      <textarea
-                        rows={3}
-                        placeholder="Describe your current status and future goals..."
-                        className="w-full bg-charcoal/40 border border-white/5 p-5 rounded-[20px] outline-none text-white text-sm resize-none focus:border-scarlet/50 transition-all"
-                      ></textarea>
-                    </div>
-
-                    <div className="pt-4">
-                      {/* Red Column Optimized Button */}
-                      <button type="button" className="w-full py-4 px-8 bg-scarlet hover:bg-scarlet/90 text-white font-bold text-sm uppercase tracking-widest rounded-full transition-all hover:scale-[1.02] shadow-lg flex items-center justify-center gap-3">
-                        Submit Inquiry
-                        <ArrowRight className="w-5 h-5" />
+                    <div className="pt-8">
+                      <button type="button" className="cta-base cta-primary w-full !min-h-[64px]">
+                        SEND MESSAGE
+                        <span className="cta-icon-circle !w-10 !h-10">
+                          <ArrowRight className="w-6 h-6" />
+                        </span>
                       </button>
                     </div>
 
-                    <div className="flex items-center justify-center gap-2 pt-6">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-scarlet" />
-                      <span className="text-[9px] font-black uppercase tracking-widest text-steel">Encrypted Data Protocol • GDPR Compliant</span>
+                    <div className="flex items-center justify-center gap-3 pt-10 opacity-40">
+                      <ShieldCheck className="w-4 h-4 text-scarlet" />
+                      <span className="text-[9px] font-black uppercase tracking-widest text-white">Your Privacy is Protected</span>
                     </div>
                   </form>
                 </div>

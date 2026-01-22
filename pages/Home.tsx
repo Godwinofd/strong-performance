@@ -381,7 +381,7 @@ const Home: React.FC = () => {
                 </h2>
 
                 <p className="text-steel text-lg md:text-2xl max-w-xl font-medium leading-relaxed opacity-70">
-                  Start your transformation today with Dublin's top personal trainer.
+                  Start your transformation today with Oxford's top personal trainer.
                 </p>
               </div>
 
@@ -392,7 +392,7 @@ const Home: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Award className="w-4 h-4 text-scarlet" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white">Dublin Authority Status</span>
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white">Oxford Authority Status</span>
                   </div>
                 </div>
 
@@ -426,15 +426,15 @@ const Home: React.FC = () => {
                   <form className="space-y-6">
                     <div className="space-y-2 text-left">
                       <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Your Name</label>
-                      <input type="text" placeholder="Your name" className="w-full bg-charcoal/40 border border-white/5 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet transition-all shadow-inner" />
+                      <input type="text" placeholder="Your name" className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet focus:bg-white/10 transition-all shadow-inner" />
                     </div>
                     <div className="space-y-2 text-left">
                       <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Email Address</label>
-                      <input type="email" placeholder="your@email.com" className="w-full bg-charcoal/40 border border-white/5 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet transition-all shadow-inner" />
+                      <input type="email" placeholder="your@email.com" className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet focus:bg-white/10 transition-all shadow-inner" />
                     </div>
                     <div className="space-y-2 text-left">
                       <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Your Goals</label>
-                      <textarea rows={4} placeholder="Tell us about your fitness goals..." className="w-full bg-charcoal/40 border border-white/5 p-6 rounded-[25px] outline-none text-white text-sm resize-none focus:border-scarlet transition-all shadow-inner"></textarea>
+                      <textarea rows={4} placeholder="Tell us about your fitness goals..." className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm resize-none focus:border-scarlet focus:bg-white/10 transition-all shadow-inner"></textarea>
                     </div>
 
                     <div className="pt-8">

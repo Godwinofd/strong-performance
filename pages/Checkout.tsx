@@ -1,17 +1,77 @@
-import React, { useState } from 'react';
-import { Trash2, ShieldCheck, Mail, Send, CheckCircle, ArrowRight, Lock, CreditCard, ShieldAlert, Cpu, Receipt, ArrowLeft } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Trash2, ShieldCheck, Mail, Send, CheckCircle, ArrowRight, Lock, CreditCard, ShieldAlert, Cpu, Receipt, ArrowLeft, XCircle } from 'lucide-react';
 import { useCart } from '../CartContext';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+
+// Replace with your Stripe Publishable Key from the dashboard
+const stripePromise = loadStripe('pk_test_placeholder');
 
 const Checkout: React.FC = () => {
   const { cart, removeFromCart, total, clearCart } = useCart();
   const [isOrdered, setIsOrdered] = useState(false);
+  const [isCanceled, setIsCanceled] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState('card');
+  const [searchParams] = useSearchParams();
 
-  const handleOrder = (e: React.FormEvent) => {
+  useEffect(() => {
+    if (searchParams.get('success')) {
+      setIsOrdered(true);
+      clearCart();
+    }
+    if (searchParams.get('canceled')) {
+      setIsCanceled(true);
+    }
+  }, [searchParams, clearCart]);
+
+  const handleOrder = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsOrdered(true);
+    setIsLoading(true);
+
+    try {
+      const formData = new FormData(e.currentTarget as HTMLFormElement);
+      const customerEmail = formData.get('email') as string;
+
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          cartItems: cart,
+          customerEmail: customerEmail,
+        }),
+      });
+
+      const { url } = await response.json();
+      if (url) {
+        window.location.href = url; // Redirect to Stripe Checkout
+      }
+    } catch (error) {
+      console.error('Error creating checkout session:', error);
+      alert('There was an error processing your order. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  if (isCanceled) {
+    return (
+      <div className="min-h-screen pt-40 pb-20 bg-obsidian flex items-center justify-center relative overflow-hidden">
+        <div className="container mx-auto px-6 max-w-2xl text-center relative z-10">
+          <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-10 border border-white/10">
+            <XCircle className="w-12 h-12 text-scarlet" />
+          </div>
+          <h1 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter">CANCELED</h1>
+          <p className="text-steel text-lg mb-12 font-medium">Your payment was canceled. No charges were made.</p>
+          <button onClick={() => setIsCanceled(false)} className="bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-wide hover:bg-white/90 transition-all">
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   if (isOrdered) {
     return (
@@ -63,11 +123,11 @@ const Checkout: React.FC = () => {
               <form id="checkout-form" onSubmit={handleOrder} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-white/60 uppercase tracking-wide ml-2">Full Name</label>
-                  <input required type="text" placeholder="John Doe" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none text-white text-sm focus:border-scarlet/50 transition-all" />
+                  <input required name="name" type="text" placeholder="John Doe" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none text-white text-sm focus:border-scarlet/50 transition-all" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-white/60 uppercase tracking-wide ml-2">Email Address</label>
-                  <input required type="email" placeholder="email@example.com" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none text-white text-sm focus:border-scarlet/50 transition-all" />
+                  <input required name="email" type="email" placeholder="email@example.com" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none text-white text-sm focus:border-scarlet/50 transition-all" />
                 </div>
                 <div className="space-y-2 md:col-span-2">
                   <label className="text-xs font-bold text-white/60 uppercase tracking-wide ml-2">Shipping Address</label>
@@ -88,8 +148,8 @@ const Checkout: React.FC = () => {
                       type="button"
                       onClick={() => setPaymentMethod('card')}
                       className={`p-4 rounded-xl border flex items-center justify-center gap-3 transition-all ${paymentMethod === 'card'
-                          ? 'bg-scarlet border-scarlet text-white'
-                          : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
+                        ? 'bg-scarlet border-scarlet text-white'
+                        : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
                         }`}
                     >
                       <CreditCard className="w-5 h-5" />
@@ -100,8 +160,8 @@ const Checkout: React.FC = () => {
                       type="button"
                       onClick={() => setPaymentMethod('paypal')}
                       className={`p-4 rounded-xl border flex items-center justify-center gap-3 transition-all ${paymentMethod === 'paypal'
-                          ? 'bg-[#0070BA] border-[#0070BA] text-white'
-                          : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
+                        ? 'bg-[#0070BA] border-[#0070BA] text-white'
+                        : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
                         }`}
                     >
                       <span className="font-bold text-sm uppercase tracking-wide">PayPal</span>
@@ -111,8 +171,8 @@ const Checkout: React.FC = () => {
                       type="button"
                       onClick={() => setPaymentMethod('google')}
                       className={`p-4 rounded-xl border flex items-center justify-center gap-3 transition-all ${paymentMethod === 'google'
-                          ? 'bg-white border-white text-black'
-                          : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
+                        ? 'bg-white border-white text-black'
+                        : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
                         }`}
                     >
                       <span className="font-bold text-sm uppercase tracking-wide">Google Pay</span>
@@ -122,8 +182,8 @@ const Checkout: React.FC = () => {
                       type="button"
                       onClick={() => setPaymentMethod('apple')}
                       className={`p-4 rounded-xl border flex items-center justify-center gap-3 transition-all ${paymentMethod === 'apple'
-                          ? 'bg-black border-white/20 text-white'
-                          : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
+                        ? 'bg-black border-white/20 text-white'
+                        : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
                         }`}
                     >
                       <span className="font-bold text-sm uppercase tracking-wide">Apple Pay</span>
@@ -132,8 +192,19 @@ const Checkout: React.FC = () => {
                 </div>
 
                 <div className="md:col-span-2 pt-10">
-                  <button type="submit" className="w-full bg-scarlet text-white py-5 px-8 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-scarlet/90 transition-all hover:scale-[1.02] shadow-lg">
-                    Place Order • £{total}
+                  <button
+                    type="submit"
+                    disabled={isLoading || cart.length === 0}
+                    className="w-full bg-scarlet text-white py-5 px-8 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-scarlet/90 transition-all hover:scale-[1.02] shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                  >
+                    {isLoading ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+                        <span>Processing...</span>
+                      </>
+                    ) : (
+                      <>Place Order • £{total}</>
+                    )}
                   </button>
                   <div className="flex items-center justify-center gap-3 mt-6 opacity-40">
                     <ShieldCheck className="w-4 h-4" />

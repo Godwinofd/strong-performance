@@ -127,7 +127,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5">
           <p className="text-steel text-[10px] font-black uppercase tracking-[0.2em] mb-6 md:mb-0">
-            © {new Date().getFullYear()} ZAC JAVID PERSONAL TRAINING • DESIGNED FOR PERFORMANCE
+            © {new Date().getFullYear()} STRONG PERFORMANCE • DESIGNED FOR PERFORMANCE
           </p>
 
           <button
