@@ -68,51 +68,57 @@ const BespokeScheduler: React.FC = () => {
             <div className="flex-grow bg-white p-6 md:p-8">
 
                 {view === 'calendar' && (
-                    <div className="animate-in fade-in slide-in-from-right-4 duration-500">
-                        <div className="flex justify-between items-center mb-8">
+                    <div className="animate-in fade-in slide-in-from-right-4 duration-500 h-full flex flex-col items-center">
+                        <div className="w-full flex justify-between items-center mb-8 px-4">
                             <h4 className="text-2xl font-black text-obsidian uppercase tracking-tight">
                                 {currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}
                             </h4>
                             <div className="flex gap-2">
-                                <button onClick={prevMonth} className="p-2 hover:bg-gray-100 rounded-full transition-colors"><ChevronLeft className="w-5 h-5" /></button>
-                                <button onClick={nextMonth} className="p-2 hover:bg-gray-100 rounded-full transition-colors"><ChevronRight className="w-5 h-5" /></button>
+                                <button type="button" onClick={prevMonth} className="p-2 hover:bg-gray-100 rounded-full transition-colors"><ChevronLeft className="w-5 h-5 text-obsidian" /></button>
+                                <button type="button" onClick={nextMonth} className="p-2 hover:bg-gray-100 rounded-full transition-colors"><ChevronRight className="w-5 h-5 text-obsidian" /></button>
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-7 gap-2 mb-2">
-                            {weekDays.map(day => (
-                                <div key={day} className="text-center text-xs font-bold text-gray-400 uppercase tracking-wider py-2">{day}</div>
-                            ))}
-                        </div>
+                        <div className="w-full max-w-md">
+                            <div className="grid grid-cols-7 mb-2 text-center">
+                                {weekDays.map(day => (
+                                    <div key={day} className="text-[10px] font-black text-gray-400 uppercase tracking-widest py-2">{day}</div>
+                                ))}
+                            </div>
 
-                        <div className="grid grid-cols-7 gap-2">
-                            {/* Empty cells for offset */}
-                            {Array.from({ length: new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1).getDay() }).map((_, i) => (
-                                <div key={`empty-${i}`} className="aspect-square"></div>
-                            ))}
+                            <div className="grid grid-cols-7 gap-1 sm:gap-2 auto-rows-fr">
+                                {/* Empty cells for start of month */}
+                                {Array.from({ length: new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1).getDay() }).map((_, i) => (
+                                    <div key={`empty-${i}`} className="w-full aspect-square"></div>
+                                ))}
 
-                            {days.map((date, i) => {
-                                const isToday = new Date().toDateString() === date.toDateString();
-                                const isPast = date < new Date() && !isToday;
-                                const isSelected = selectedDate?.toDateString() === date.toDateString();
+                                {days.map((date, i) => {
+                                    const isToday = new Date().toDateString() === date.toDateString();
+                                    const isPast = date < new Date() && !isToday;
+                                    const isSelected = selectedDate?.toDateString() === date.toDateString();
 
-                                return (
-                                    <button
-                                        key={i}
-                                        disabled={isPast}
-                                        onClick={() => handleDateSelect(date)}
-                                        className={`
-                                    aspect-square rounded-xl flex flex-col items-center justify-center text-sm font-bold transition-all
-                                    ${isSelected ? 'bg-scarlet text-white shadow-lg scale-110' : ''}
-                                    ${isToday && !isSelected ? 'text-scarlet border border-scarlet/30' : ''}
-                                    ${!isPast && !isSelected ? 'hover:bg-gray-50 hover:text-scarlet hover:scale-105' : ''}
-                                    ${isPast ? 'opacity-20 cursor-not-allowed' : 'text-obsidian'}
-                                `}
-                                    >
-                                        {date.getDate()}
-                                    </button>
-                                );
-                            })}
+                                    return (
+                                        <button
+                                            key={i}
+                                            disabled={isPast}
+                                            onClick={() => handleDateSelect(date)}
+                                            className={`
+                                                w-full aspect-square rounded-full flex items-center justify-center text-sm font-bold transition-all relative
+                                                ${isSelected
+                                                    ? 'bg-scarlet text-white shadow-lg scale-110 z-10'
+                                                    : 'text-obsidian hover:bg-gray-100'}
+                                                ${isToday && !isSelected ? 'text-scarlet border-2 border-scarlet/20' : ''}
+                                                ${isPast ? 'opacity-20 cursor-not-allowed hover:bg-transparent' : ''}
+                                            `}
+                                        >
+                                            <span className="relative z-10">{date.getDate()}</span>
+                                            {isToday && !isSelected && (
+                                                <span className="absolute -bottom-1 w-1 h-1 bg-scarlet rounded-full"></span>
+                                            )}
+                                        </button>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 )}
