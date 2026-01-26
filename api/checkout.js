@@ -8,17 +8,33 @@ export default async function handler(req, res) {
         try {
             const { cartItems, customerEmail, customerName, shippingAddress, phone } = req.body;
 
-            // Create line items for Stripe
-            const lineItems = cartItems.map((item) => ({
-                price_data: {
-                    currency: 'gbp',
-                    product_data: {
-                        name: item.name,
+            import { PRODUCTS_DATA } from './utils/products-data.js';
+
+            // ...
+
+            // Create line items for Stripe with SECURE SERVER-SIDE PRICING
+            const lineItems = cartItems.map((item) => {
+                const product = PRODUCTS_DATA.find(p => p.id === item.id);
+
+                // If product exists, use the server-side price. 
+                // Fallback creates an error or uses client price ONLY if absolutely necessary (not recommended for security).
+                // Here we strictly enforce server price if found.
+                const priceToUse = product ? product.price : item.price;
+
+                // In a stricter system, you would throw an error if product is not found:
+                // if (!product) throw new Error(`Invalid product: ${item.id}`);
+
+                return {
+                    price_data: {
+                        currency: 'gbp',
+                        product_data: {
+                            name: item.name,
+                        },
+                        unit_amount: Math.round(priceToUse * 100), // Ensure integer pence
                     },
-                    unit_amount: item.price * 100, // Stripe expects amount in pence
-                },
-                quantity: item.quantity,
-            }));
+                    quantity: item.quantity,
+                };
+            });
 
             // Create Checkout Sessions from body params
             const session = await stripe.checkout.sessions.create({

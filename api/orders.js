@@ -11,7 +11,12 @@ export default async function handler(req, res) {
     // Basic password protection for the API itself
     // In a real app, you'd use a real auth system, but we'll use a header for now
     const adminPassword = req.headers['x-admin-password'];
-    if (adminPassword !== 'admin') {
+    const validPassword = process.env.ADMIN_PASSWORD || 'admin'; // Should match VITE_ADMIN_PASSWORD in .env
+
+    // Note: VITE_ variables are for frontend, standard variables for backend. 
+    // Usually deploy platforms allow mapping them.
+
+    if (adminPassword !== validPassword && adminPassword !== 'admin') { // Fallback for transition
         return res.status(401).json({ error: 'Unauthorized' });
     }
 

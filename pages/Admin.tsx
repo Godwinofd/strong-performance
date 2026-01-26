@@ -46,7 +46,8 @@ const Admin: React.FC = () => {
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        if (username === 'admin' && password === 'admin') {
+        const adminPass = import.meta.env.VITE_ADMIN_PASSWORD || 'admin';
+        if (username === 'admin' && password === adminPass) {
             setIsAuthenticated(true);
             setError('');
             fetchOrders();
@@ -58,9 +59,10 @@ const Admin: React.FC = () => {
     const fetchOrders = async () => {
         setIsLoading(true);
         try {
+            const adminPass = import.meta.env.VITE_ADMIN_PASSWORD || 'admin';
             const response = await fetch('/api/orders', {
                 headers: {
-                    'x-admin-password': 'admin'
+                    'x-admin-password': adminPass
                 }
             });
             const data = await response.json();
