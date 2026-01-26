@@ -14,35 +14,35 @@ const Booking: React.FC = () => {
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
-                    <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full mb-10 reveal active shadow-2xl backdrop-blur-md">
+                    <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/10 border border-white/20 rounded-full mb-10 reveal active shadow-2xl backdrop-blur-md">
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-scarlet opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-scarlet"></span>
                         </span>
-                        <span className="text-white font-black tracking-[0.3em] uppercase text-[9px]">Elite Strategy Session</span>
+                        <span className="text-white font-black tracking-[0.3em] uppercase text-[10px]">Elite Strategy Session</span>
                     </div>
 
-                    <h1 className="text-6xl md:text-[10rem] font-black mb-8 uppercase tracking-tighter leading-[0.85] reveal active italic">
-                        SECURE YOUR <br /><span className="text-white not-italic tracking-[-0.05em]">EDGE.</span>
+                    <h1 className="text-6xl md:text-[10rem] font-black mb-8 uppercase tracking-tighter leading-[0.85] reveal active italic text-white">
+                        SECURE YOUR <br /><span className="text-scarlet not-italic tracking-[-0.05em]">EDGE.</span>
                     </h1>
 
-                    <p className="text-steel text-lg md:text-2xl max-w-3xl mx-auto font-medium opacity-80 mb-12 reveal active leading-relaxed">
+                    <p className="text-white text-lg md:text-2xl max-w-3xl mx-auto font-bold mb-12 reveal active leading-relaxed">
                         Stop guessing. Start executing. Book your free 15-minute tactical consultation to architect your high-performance future.
                     </p>
 
-                    <div className="flex flex-wrap items-center justify-center gap-8 reveal active opacity-50">
-                        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white">
-                            <Video size={14} className="text-scarlet" />
+                    <div className="flex flex-wrap items-center justify-center gap-8 reveal active">
+                        <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-white/90">
+                            <Video size={16} className="text-scarlet" />
                             Live Google Meet
                         </div>
-                        <div className="w-1.5 h-1.5 bg-white/20 rounded-full"></div>
-                        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white">
-                            <Clock size={14} className="text-scarlet" />
+                        <div className="w-1.5 h-1.5 bg-scarlet rounded-full"></div>
+                        <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-white/90">
+                            <Clock size={16} className="text-scarlet" />
                             15 Min Strategy
                         </div>
-                        <div className="w-1.5 h-1.5 bg-white/20 rounded-full"></div>
-                        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white">
-                            <Brain size={14} className="text-scarlet" />
+                        <div className="w-1.5 h-1.5 bg-scarlet rounded-full"></div>
+                        <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-white/90">
+                            <Brain size={16} className="text-scarlet" />
                             Custom Roadmap
                         </div>
                     </div>
@@ -58,25 +58,25 @@ const Booking: React.FC = () => {
                         <div className="xl:col-span-4 space-y-16 reveal active">
                             <div className="space-y-6">
                                 <div className="w-12 h-1 bg-scarlet"></div>
-                                <h2 className="text-4xl font-black text-white uppercase tracking-tighter leading-none">What Happens <br /><span className="text-scarlet">On the call?</span></h2>
-                                <p className="text-steel text-lg font-medium leading-relaxed">
-                                    This isn't a sales pitch. It's a technical briefing designed to identify friction in your current training and provide immediate fixes.
+                                <h2 className="text-4xl font-black text-white uppercase tracking-tighter leading-none">What Happens <br /><span className="text-scarlet italic">On the call?</span></h2>
+                                <p className="text-white text-lg font-bold leading-relaxed">
+                                    This isn't a sales pitch. It's a technical briefing designed to identify friction in your current training.
                                 </p>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-10">
                                 {[
-                                    { icon: <Target className="w-6 h-6" />, title: "Biometric Audit", desc: "We'll discuss your current physiology and operational constraints." },
-                                    { icon: <Zap className="w-6 h-6" />, title: "Tactical Pivot", desc: "Real-time adjustments to your current routine for instant results." },
-                                    { icon: <ShieldCheck className="w-6 h-6" />, title: "Zero Friction", desc: "Direct access to elite coaching insights. No automated templates." }
+                                    { icon: <Target className="w-6 h-6" />, title: "Biometric Audit", desc: "We'll analyze your physiology and specific operational constraints." },
+                                    { icon: <Zap className="w-6 h-6" />, title: "Tactical Pivot", desc: "Immediate adjustments to your routine for instant performance results." },
+                                    { icon: <ShieldCheck className="w-6 h-6" />, title: "Zero Friction", desc: "Direct access to elite coaching. No automated boilerplates or generic templates." }
                                 ].map((item, i) => (
                                     <div key={i} className="group flex gap-6">
-                                        <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-[20px] flex items-center justify-center text-white group-hover:bg-scarlet transition-all duration-500 shrink-0 shadow-lg">
+                                        <div className="w-16 h-16 bg-white/10 border border-white/20 rounded-[20px] flex items-center justify-center text-white group-hover:bg-scarlet transition-all duration-500 shrink-0 shadow-xl">
                                             {item.icon}
                                         </div>
                                         <div className="space-y-2">
-                                            <h3 className="text-xl font-bold text-white uppercase tracking-tight">{item.title}</h3>
-                                            <p className="text-steel text-sm leading-relaxed opacity-60 font-medium">{item.desc}</p>
+                                            <h3 className="text-xl font-black text-white uppercase tracking-tight">{item.title}</h3>
+                                            <p className="text-white/80 text-sm leading-relaxed font-bold">{item.desc}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -103,26 +103,29 @@ const Booking: React.FC = () => {
                                 {/* Decorative border glow */}
                                 <div className="absolute -inset-1 bg-gradient-to-r from-scarlet/20 via-white/5 to-scarlet/20 rounded-[45px] blur-sm opacity-50 group-hover:opacity-100 transition duration-1000"></div>
 
-                                <div className="relative bg-[#080808] border border-white/10 rounded-[40px] shadow-2xl overflow-hidden min-h-[750px] sm:min-h-[850px]">
+                                <div className="relative bg-[#111111] border-2 border-white/20 rounded-[40px] shadow-2xl overflow-hidden min-h-[750px] sm:min-h-[850px]">
                                     {/* Desktop Loader / Header */}
-                                    <div className="w-full h-14 bg-white/5 border-b border-white/10 flex items-center justify-between px-8">
+                                    <div className="w-full h-14 bg-white/10 border-b border-white/10 flex items-center justify-between px-8">
                                         <div className="flex gap-2">
-                                            <div className="w-3 h-3 rounded-full bg-white/10"></div>
-                                            <div className="w-3 h-3 rounded-full bg-white/10"></div>
-                                            <div className="w-3 h-3 rounded-full bg-white/10"></div>
+                                            <div className="w-3 h-3 rounded-full bg-scarlet/50"></div>
+                                            <div className="w-3 h-3 rounded-full bg-white/20"></div>
+                                            <div className="w-3 h-3 rounded-full bg-white/20"></div>
                                         </div>
-                                        <div className="text-[10px] font-black text-white/40 uppercase tracking-[4px]">Verified Secure Scheduler</div>
-                                        <div className="flex items-center gap-2 text-scarlet animate-pulse">
-                                            <div className="w-1.5 h-1.5 bg-scarlet rounded-full"></div>
-                                            <span className="text-[8px] font-black uppercase">Live</span>
+                                        <div className="text-[11px] font-black text-white uppercase tracking-[4px]">OFFICIAL SCHEDULER</div>
+                                        <div className="flex items-center gap-2 text-scarlet">
+                                            <span className="relative flex h-2 w-2">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-scarlet opacity-75"></span>
+                                                <span className="relative inline-flex rounded-full h-2 w-2 bg-scarlet"></span>
+                                            </span>
+                                            <span className="text-[9px] font-black uppercase tracking-widest text-white">LIVE SLOTS</span>
                                         </div>
                                     </div>
 
                                     {/* The Iframe with better container */}
-                                    <div className="w-full h-full p-0 sm:p-4">
+                                    <div className="w-full h-full p-1 sm:p-4 bg-white/[0.02]">
                                         <iframe
                                             src="https://calendar.app.google/1q7FMW47477Tb1TLA"
-                                            style={{ border: 0, borderRadius: '24px' }}
+                                            style={{ border: 0, borderRadius: '24px', filter: 'contrast(1.1) brightness(1.1)' }}
                                             width="100%"
                                             height="750"
                                             frameBorder="0"
