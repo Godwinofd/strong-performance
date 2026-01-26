@@ -1,4 +1,5 @@
 import Stripe from 'stripe';
+import { PRODUCTS_DATA } from './utils/products-data.js';
 
 // NOTE: In production, the STRIPE_SECRET_KEY should be set in your hosting provider's environment variables.
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
@@ -7,10 +8,6 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
         try {
             const { cartItems, customerEmail, customerName, shippingAddress, phone } = req.body;
-
-            import { PRODUCTS_DATA } from './utils/products-data.js';
-
-            // ...
 
             // Create line items for Stripe with SECURE SERVER-SIDE PRICING
             const lineItems = cartItems.map((item) => {
