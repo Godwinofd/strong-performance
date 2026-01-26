@@ -161,26 +161,5 @@ const Booking: React.FC = () => {
     );
 };
 
-// Icons with more technical feel
-const Target = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <circle cx="12" cy="12" r="10" />
-        <path d="m12 8 4 4-4 4" />
-        <path d="M8 12h8" />
-    </svg>
-);
-
-const Zap = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-    </svg>
-);
-
-const ShieldCheck = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="m9 12 2 2 4-4" />
-    </svg>
-);
-
+// Icons are imported from lucide-react at the top
 export default Booking;
