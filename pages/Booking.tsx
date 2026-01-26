@@ -4,11 +4,10 @@ import { Video, Clock, MessageSquare, ArrowRight, ShieldCheck, Target, Zap, Wave
 const Booking: React.FC = () => {
     return (
         <div className="pt-20 bg-obsidian min-h-screen selection:bg-scarlet selection:text-white">
-            {/* HERO SECTION - MORE AGGRESSIVE & PREMIUM */}
+            {/* HERO SECTION */}
             <section className="relative pt-32 pb-20 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-gradient-to-b from-scarlet/20 via-obsidian/90 to-obsidian"></div>
-                    {/* Animated background elements */}
                     <div className="absolute top-0 left-1/4 w-96 h-96 bg-scarlet/5 rounded-full blur-[120px] animate-pulse"></div>
                     <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-scarlet/10 rounded-full blur-[120px] animate-pulse delay-700"></div>
                 </div>
@@ -81,7 +80,6 @@ const Booking: React.FC = () => {
                                 ))}
                             </div>
 
-                            {/* Trust Indicator */}
                             <div className="p-8 bg-white/5 border border-white/10 rounded-[35px] relative overflow-hidden group">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-scarlet scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-700"></div>
                                 <div className="relative z-10 flex items-center gap-5">
@@ -99,11 +97,9 @@ const Booking: React.FC = () => {
                         {/* RIGHT: THE SCHEDULER */}
                         <div className="xl:col-span-8 reveal active">
                             <div className="relative group">
-                                {/* Decorative border glow */}
                                 <div className="absolute -inset-1 bg-gradient-to-r from-scarlet/20 via-white/5 to-scarlet/20 rounded-[45px] blur-sm opacity-50 group-hover:opacity-100 transition duration-1000"></div>
 
                                 <div className="relative bg-white border-2 border-white rounded-[40px] shadow-[0_0_50px_-12px_rgba(220,38,38,0.5)] overflow-hidden min-h-[750px] sm:min-h-[850px]">
-                                    {/* System Header */}
                                     <div className="w-full h-14 bg-obsidian border-b border-white/10 flex items-center justify-between px-8">
                                         <div className="flex gap-2">
                                             <div className="w-3 h-3 rounded-full bg-scarlet"></div>
@@ -120,7 +116,6 @@ const Booking: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    {/* The Iframe with clean white background for total readability */}
                                     <div className="w-full h-full bg-white">
                                         <iframe
                                             src="https://calendar.app.google/1q7FMW47477Tb1TLA"
@@ -145,7 +140,6 @@ const Booking: React.FC = () => {
                                     </div>
                                     <p className="text-[10px] font-black text-white/40 uppercase tracking-widest">+15 Slots Taken This Week</p>
                                 </div>
-
                                 <div className="flex items-center gap-3">
                                     <ShieldCheck className="text-scarlet" size={16} />
                                     <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">End-to-End Encrypted Booking</span>
@@ -160,5 +154,4 @@ const Booking: React.FC = () => {
     );
 };
 
-// Icons are imported from lucide-react at the top
 export default Booking;
