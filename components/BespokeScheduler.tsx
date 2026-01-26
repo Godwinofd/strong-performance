@@ -33,12 +33,41 @@ const BespokeScheduler: React.FC = () => {
         setView('form');
     };
 
-    const handleBookingSubmit = (e: React.FormEvent) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleBookingSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // In a real app, send to backend here
-        setTimeout(() => {
-            setView('success');
-        }, 1000);
+        setIsSubmitting(true);
+
+        const formData = new FormData(e.target as HTMLFormElement);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const goals = formData.get('goals');
+
+        try {
+            const response = await fetch('/api/booking', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    goals,
+                    date: selectedDate?.toLocaleDateString(),
+                    time: selectedTime
+                })
+            });
+
+            if (response.ok) {
+                setView('success');
+            } else {
+                alert('Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            console.error(error);
+            alert('Error connecting to server.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const nextMonth = () => {
@@ -161,19 +190,19 @@ const BespokeScheduler: React.FC = () => {
                         <form onSubmit={handleBookingSubmit} className="space-y-4">
                             <div>
                                 <label className="text-xs font-bold text-white/40 uppercase tracking-widest ml-1 mb-1 block">Full Name</label>
-                                <input required type="text" className="w-full bg-white/10 border border-white/10 p-4 rounded-xl font-bold text-white outline-none focus:border-scarlet focus:ring-1 focus:ring-scarlet transition-all placeholder:text-white/20" placeholder="Enter your name" />
+                                <input name="name" required type="text" className="w-full bg-white/10 border border-white/10 p-4 rounded-xl font-bold text-white outline-none focus:border-scarlet focus:ring-1 focus:ring-scarlet transition-all placeholder:text-white/20" placeholder="Enter your name" />
                             </div>
                             <div>
                                 <label className="text-xs font-bold text-white/40 uppercase tracking-widest ml-1 mb-1 block">Email Address</label>
-                                <input required type="email" className="w-full bg-white/10 border border-white/10 p-4 rounded-xl font-bold text-white outline-none focus:border-scarlet focus:ring-1 focus:ring-scarlet transition-all placeholder:text-white/20" placeholder="Enter your email" />
+                                <input name="email" required type="email" className="w-full bg-white/10 border border-white/10 p-4 rounded-xl font-bold text-white outline-none focus:border-scarlet focus:ring-1 focus:ring-scarlet transition-all placeholder:text-white/20" placeholder="Enter your email" />
                             </div>
                             <div>
                                 <label className="text-xs font-bold text-white/40 uppercase tracking-widest ml-1 mb-1 block">Training Goals</label>
-                                <textarea rows={3} className="w-full bg-white/10 border border-white/10 p-4 rounded-xl font-bold text-white outline-none focus:border-scarlet focus:ring-1 focus:ring-scarlet transition-all resize-none placeholder:text-white/20" placeholder="What are you looking to achieve?"></textarea>
+                                <textarea name="goals" rows={3} className="w-full bg-white/10 border border-white/10 p-4 rounded-xl font-bold text-white outline-none focus:border-scarlet focus:ring-1 focus:ring-scarlet transition-all resize-none placeholder:text-white/20" placeholder="What are you looking to achieve?"></textarea>
                             </div>
 
-                            <button type="submit" className="w-full bg-scarlet text-white py-5 rounded-xl font-black uppercase tracking-widest shadow-xl hover:bg-white hover:text-black transition-all mt-4">
-                                Confirm Booking
+                            <button type="submit" disabled={isSubmitting} className="w-full bg-scarlet text-white py-5 rounded-xl font-black uppercase tracking-widest shadow-xl hover:bg-white hover:text-black transition-all mt-4 disabled:opacity-50 disabled:cursor-not-allowed">
+                                {isSubmitting ? 'Confirming...' : 'Confirm Booking'}
                             </button>
                         </form>
                     </div>
