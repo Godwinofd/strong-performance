@@ -161,7 +161,7 @@ const Checkout: React.FC = () => {
                   </button>
                   <p className="text-center text-[11px] font-bold text-white/50 uppercase tracking-[0.2em] mt-6 leading-relaxed">
                     You will be redirected to our <span className="text-scarlet">Secure Checkout</span> to choose between <br />
-                    Card, Google Pay, Apple Pay, or PayPal.
+                    Card, Amazon Pay, Klarna, or Revolut Pay.
                   </p>
                   <div className="flex items-center justify-center gap-3 mt-6 opacity-30">
                     <ShieldCheck className="w-4 h-4" />
