@@ -2,9 +2,9 @@
  * Generate branded HTML email template for booking confirmation
  */
 export function generateBookingEmail(data) {
-    const { name, date, time, meetLink } = data;
+  const { name, date, time, meetLink } = data;
 
-    return `
+  return `
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -120,14 +120,14 @@ export function generateBookingEmail(data) {
             <div class="label">Time</div>
             <div class="value">${time}</div>
             
-            <div class="label">Location</div>
-            <div class="value">Google Meet</div>
+            <div class="label">Status</div>
+            <div class="value" style="color: #FBBF24;">Pending Confirmation</div>
         </div>
 
-        <a href="${meetLink}" class="btn">Join Meeting</a>
+        ${meetLink && meetLink !== '#' ? `<a href="${meetLink}" class="btn">Join Meeting</a>` : ''}
         
-        <p style="color: #666; font-size: 12px; margin-top: 30px;">
-            Please ensure you are in a quiet environment for the call.
+        <p style="color: #666; font-size: 14px; margin-top: 30px;">
+            <strong>Next Step:</strong> You will receive a calendar invitation with the Google Meet link shortly.
         </p>
       </div>
       <div class="footer">

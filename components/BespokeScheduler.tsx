@@ -52,7 +52,7 @@ const BespokeScheduler: React.FC = () => {
                     name,
                     email,
                     goals,
-                    date: selectedDate?.toLocaleDateString(),
+                    date: selectedDate?.toISOString(), // Send ISO format for reliable backend parsing
                     time: selectedTime
                 })
             });
