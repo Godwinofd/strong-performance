@@ -19,21 +19,21 @@ const Booking: React.FC = () => {
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-scarlet opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-scarlet"></span>
                         </span>
-                        <span className="text-white font-black tracking-[0.3em] uppercase text-[10px]">Elite Strategy Session</span>
+                        <span className="text-white font-black tracking-[0.3em] uppercase text-[10px]">Complimentary Performance Call</span>
                     </div>
 
                     <h1 className="text-6xl md:text-[10rem] font-black mb-8 uppercase tracking-tighter leading-[0.85] reveal active italic text-white">
-                        SECURE YOUR <br /><span className="text-scarlet not-italic tracking-[-0.05em]">EDGE.</span>
+                        MASTER YOUR <br /><span className="text-scarlet not-italic tracking-[-0.05em]">FITNESS.</span>
                     </h1>
 
                     <p className="text-white text-lg md:text-2xl max-w-3xl mx-auto font-bold mb-12 reveal active leading-relaxed">
-                        Stop guessing. Start executing. Book your free 15-minute tactical consultation to architect your high-performance future.
+                        Book a 15-minute consultation to discuss your specific goals and discover the most effective roadmap for your elite lifestyle.
                     </p>
 
                     <div className="flex flex-wrap items-center justify-center gap-8 reveal active">
                         <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-white/90">
                             <Video size={16} className="text-scarlet" />
-                            Live Google Meet
+                            Consultation Call
                         </div>
                         <div className="w-1.5 h-1.5 bg-scarlet rounded-full"></div>
                         <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-white/90">
@@ -43,7 +43,7 @@ const Booking: React.FC = () => {
                         <div className="w-1.5 h-1.5 bg-scarlet rounded-full"></div>
                         <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-white/90">
                             <Brain size={16} className="text-scarlet" />
-                            Custom Roadmap
+                            Personalized Path
                         </div>
                     </div>
                 </div>
@@ -57,18 +57,17 @@ const Booking: React.FC = () => {
                         {/* LEFT: THE VALUE PROPOSITION */}
                         <div className="xl:col-span-4 space-y-16 reveal active">
                             <div className="space-y-6">
-                                <div className="w-12 h-1 bg-scarlet"></div>
-                                <h2 className="text-4xl font-black text-white uppercase tracking-tighter leading-none">What Happens <br /><span className="text-scarlet italic">On the call?</span></h2>
+                                <h2 className="text-4xl font-black text-white uppercase tracking-tighter leading-none">Why Choose <br /><span className="text-scarlet italic">Strong Performance?</span></h2>
                                 <p className="text-white text-lg font-bold leading-relaxed">
-                                    This isn't a sales pitch. It's a technical briefing designed to identify friction in your current training.
+                                    Our consultation is designed to understand your vision and build a sustainable, elite-level training strategy.
                                 </p>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-10">
                                 {[
-                                    { icon: <Target className="w-6 h-6" />, title: "Biometric Audit", desc: "We'll analyze your physiology and specific operational constraints." },
-                                    { icon: <Zap className="w-6 h-6" />, title: "Tactical Pivot", desc: "Immediate adjustments to your routine for instant performance results." },
-                                    { icon: <ShieldCheck className="w-6 h-6" />, title: "Zero Friction", desc: "Direct access to elite coaching. No automated boilerplates or generic templates." }
+                                    { icon: <Target className="w-6 h-6" />, title: "Goal Analysis", desc: "We'll define your objectives and the exact metrics needed to hit them." },
+                                    { icon: <Zap className="w-6 h-6" />, title: "Strategic Planning", desc: "A high-level look at the training splits and nutrition that fit your life." },
+                                    { icon: <ShieldCheck className="w-6 h-6" />, title: "Expert Support", desc: "Direct guidance from a professional trainer. No generic advice." }
                                 ].map((item, i) => (
                                     <div key={i} className="group flex gap-6">
                                         <div className="w-16 h-16 bg-white/10 border border-white/20 rounded-[20px] flex items-center justify-center text-white group-hover:bg-scarlet transition-all duration-500 shrink-0 shadow-xl">
