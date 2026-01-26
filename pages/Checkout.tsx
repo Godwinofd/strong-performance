@@ -144,59 +144,6 @@ const Checkout: React.FC = () => {
                   <input name="phone" type="tel" placeholder="+44 7000 000000" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none text-white text-sm focus:border-scarlet/50 transition-all" />
                 </div>
 
-                <div className="md:col-span-2 pt-8">
-                  <div className="border-b border-white/10 pb-6 mb-6">
-                    <h3 className="text-xl font-bold text-white uppercase tracking-wide">Payment Method</h3>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod('card')}
-                      className={`p-4 rounded-xl border flex items-center justify-center gap-3 transition-all ${paymentMethod === 'card'
-                        ? 'bg-scarlet border-scarlet text-white'
-                        : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
-                        }`}
-                    >
-                      <CreditCard className="w-5 h-5" />
-                      <span className="font-bold text-sm uppercase tracking-wide">Card</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod('paypal')}
-                      className={`p-4 rounded-xl border flex items-center justify-center gap-3 transition-all ${paymentMethod === 'paypal'
-                        ? 'bg-[#0070BA] border-[#0070BA] text-white'
-                        : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
-                        }`}
-                    >
-                      <span className="font-bold text-sm uppercase tracking-wide">PayPal</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod('google')}
-                      className={`p-4 rounded-xl border flex items-center justify-center gap-3 transition-all ${paymentMethod === 'google'
-                        ? 'bg-white border-white text-black'
-                        : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
-                        }`}
-                    >
-                      <span className="font-bold text-sm uppercase tracking-wide">Google Pay</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod('apple')}
-                      className={`p-4 rounded-xl border flex items-center justify-center gap-3 transition-all ${paymentMethod === 'apple'
-                        ? 'bg-black border-white/20 text-white'
-                        : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
-                        }`}
-                    >
-                      <span className="font-bold text-sm uppercase tracking-wide">Apple Pay</span>
-                    </button>
-                  </div>
-                </div>
-
                 <div className="md:col-span-2 pt-10">
                   <button
                     type="submit"
@@ -212,9 +159,13 @@ const Checkout: React.FC = () => {
                       <>Place Order • £{total}</>
                     )}
                   </button>
-                  <div className="flex items-center justify-center gap-3 mt-6 opacity-40">
+                  <p className="text-center text-[11px] font-bold text-white/50 uppercase tracking-[0.2em] mt-6 leading-relaxed">
+                    You will be redirected to our <span className="text-scarlet">Secure Checkout</span> to choose between <br />
+                    Card, Google Pay, Apple Pay, or PayPal.
+                  </p>
+                  <div className="flex items-center justify-center gap-3 mt-6 opacity-30">
                     <ShieldCheck className="w-4 h-4" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest">SSL Encrypted Transaction</span>
+                    <span className="text-[9px] font-bold uppercase tracking-widest">SSL Encrypted Transaction</span>
                   </div>
                 </div>
               </form>
