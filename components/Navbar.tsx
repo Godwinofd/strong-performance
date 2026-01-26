@@ -33,6 +33,7 @@ const Navbar: React.FC = () => {
     { name: 'HOME', path: '/' },
     { name: 'ABOUT', path: '/about' },
     { name: 'PLANS', path: '/plans' },
+    { name: 'CONSULTATION', path: '/booking' },
     { name: 'SHOP', path: '/shop' },
     { name: 'CONTACT', path: '/contact' },
   ];
@@ -91,7 +92,7 @@ const Navbar: React.FC = () => {
             </Link>
 
             <Link
-              to="/plans"
+              to="/booking"
               className="inline-flex cta-base cta-primary !py-1 !pl-3 sm:!pl-6 !min-h-[36px] sm:!min-h-[46px] !gap-2 sm:!gap-4 !text-[9px] sm:!text-[11px]"
             >
               <span className="hidden min-[380px]:inline">GET STARTED</span>

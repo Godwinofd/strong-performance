@@ -9,6 +9,7 @@ import Shop from './pages/Shop';
 import Contact from './pages/Contact';
 import Checkout from './pages/Checkout';
 import Admin from './pages/Admin';
+import Booking from './pages/Booking';
 import ProductDetail from './pages/ProductDetail';
 import Shipping from './pages/Shipping';
 import Returns from './pages/Returns';
@@ -79,6 +80,7 @@ const App: React.FC = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/booking" element={<Booking />} />
               <Route path="/shipping" element={<Shipping />} />
               <Route path="/returns" element={<Returns />} />
               <Route path="/size-guide" element={<SizeGuide />} />
