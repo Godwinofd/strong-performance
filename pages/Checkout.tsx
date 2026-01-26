@@ -4,8 +4,8 @@ import { useCart } from '../CartContext';
 import { Link, useSearchParams } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 
-// Replace with your Stripe Publishable Key from the dashboard
-const stripePromise = loadStripe('pk_test_placeholder');
+// Load Stripe with publishable key from environment variables
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || '');
 
 const Checkout: React.FC = () => {
   const { cart, removeFromCart, total, clearCart } = useCart();
@@ -32,6 +32,9 @@ const Checkout: React.FC = () => {
     try {
       const formData = new FormData(e.currentTarget as HTMLFormElement);
       const customerEmail = formData.get('email') as string;
+      const customerName = formData.get('name') as string;
+      const shippingAddress = formData.get('address') as string;
+      const phone = formData.get('phone') as string;
 
       const response = await fetch('/api/checkout', {
         method: 'POST',
@@ -40,7 +43,10 @@ const Checkout: React.FC = () => {
         },
         body: JSON.stringify({
           cartItems: cart,
-          customerEmail: customerEmail,
+          customerEmail,
+          customerName,
+          shippingAddress,
+          phone,
         }),
       });
 
@@ -131,11 +137,11 @@ const Checkout: React.FC = () => {
                 </div>
                 <div className="space-y-2 md:col-span-2">
                   <label className="text-xs font-bold text-white/60 uppercase tracking-wide ml-2">Shipping Address</label>
-                  <input required type="text" placeholder="123 Street Name, City, Country" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none text-white text-sm focus:border-scarlet/50 transition-all" />
+                  <input required name="address" type="text" placeholder="123 Street Name, City, Country" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none text-white text-sm focus:border-scarlet/50 transition-all" />
                 </div>
                 <div className="space-y-2 md:col-span-2">
                   <label className="text-xs font-bold text-white/60 uppercase tracking-wide ml-2">Phone Number</label>
-                  <input type="tel" placeholder="+44 7000 000000" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none text-white text-sm focus:border-scarlet/50 transition-all" />
+                  <input name="phone" type="tel" placeholder="+44 7000 000000" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none text-white text-sm focus:border-scarlet/50 transition-all" />
                 </div>
 
                 <div className="md:col-span-2 pt-8">

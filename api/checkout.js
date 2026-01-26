@@ -6,7 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         try {
-            const { cartItems, customerEmail } = req.body;
+            const { cartItems, customerEmail, customerName, shippingAddress, phone } = req.body;
 
             // Create line items for Stripe
             const lineItems = cartItems.map((item) => ({
@@ -28,6 +28,11 @@ export default async function handler(req, res) {
                 success_url: `${req.headers.origin}/#/checkout?success=true`,
                 cancel_url: `${req.headers.origin}/#/checkout?canceled=true`,
                 customer_email: customerEmail,
+                metadata: {
+                    customer_name: req.body.customerName || '',
+                    shipping_address: req.body.shippingAddress || '',
+                    phone: req.body.phone || '',
+                },
             });
 
             res.status(200).json({ url: session.url });
