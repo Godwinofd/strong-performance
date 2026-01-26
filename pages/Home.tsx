@@ -299,7 +299,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-32">
             {[
               { num: "01", icon: Users, title: "Personalized Training", desc: "Cookie-cutter plans fail because no two people are the same. Your plan is built for you." },
-              { num: "02", icon: CheckCircle2, title: "Proven Results", desc: "Five years of successful client transformations in Dublin." },
+              { num: "02", icon: CheckCircle2, title: "Proven Results", desc: "Five years of successful client transformations in Oxford." },
               { num: "03", icon: Zap, title: "Science-Based Approach", desc: "Data-driven training combined with expert coaching." },
             ].map((item, i) => (
               <div key={i} className="p-8 md:p-10 bg-charcoal/10 border border-white/5 rounded-[40px] text-left hover:border-scarlet/30 transition-all hover:shadow-2xl">
