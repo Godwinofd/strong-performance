@@ -1,4 +1,5 @@
 import React from 'react';
+import BespokeScheduler from '../components/BespokeScheduler';
 import { Video, Clock, MessageSquare, ArrowRight, ShieldCheck, Target, Zap, Waves, Brain, Trophy } from 'lucide-react';
 
 const Booking: React.FC = () => {
@@ -56,7 +57,7 @@ const Booking: React.FC = () => {
                         {/* LEFT: THE VALUE PROPOSITION */}
                         <div className="xl:col-span-4 space-y-16 reveal active">
                             <div className="space-y-6">
-                                <h2 className="text-4xl font-black text-white uppercase tracking-tighter leading-none">Why Choose <br /><span className="text-scarlet italic">Strong Performance?</span></h2>
+                                <h2 className="text-4xl font-black text-white uppercase tracking-tighter leading-none">Why Choose <br /><span className="text-scarlet font-black uppercase tracking-tighter leading-[0.85] italic">Strong Performance?</span></h2>
                                 <p className="text-white text-lg font-bold leading-relaxed">
                                     Our consultation is designed to understand your vision and build a sustainable, elite-level training strategy.
                                 </p>
@@ -97,36 +98,11 @@ const Booking: React.FC = () => {
                         {/* RIGHT: THE SCHEDULER */}
                         <div className="xl:col-span-8 reveal active">
                             <div className="relative group">
+                                {/* Decorative border glow */}
                                 <div className="absolute -inset-1 bg-gradient-to-r from-scarlet/20 via-white/5 to-scarlet/20 rounded-[45px] blur-sm opacity-50 group-hover:opacity-100 transition duration-1000"></div>
 
-                                <div className="relative bg-white border-2 border-white rounded-[40px] shadow-[0_0_50px_-12px_rgba(220,38,38,0.5)] overflow-hidden min-h-[750px] sm:min-h-[850px]">
-                                    <div className="w-full h-14 bg-obsidian border-b border-white/10 flex items-center justify-between px-8">
-                                        <div className="flex gap-2">
-                                            <div className="w-3 h-3 rounded-full bg-scarlet"></div>
-                                            <div className="w-3 h-3 rounded-full bg-white/20"></div>
-                                            <div className="w-3 h-3 rounded-full bg-white/20"></div>
-                                        </div>
-                                        <div className="text-[11px] font-black text-white uppercase tracking-[4px]">OFFICIAL SCHEDULER</div>
-                                        <div className="flex items-center gap-2 text-scarlet">
-                                            <span className="relative flex h-2 w-2">
-                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-scarlet opacity-75"></span>
-                                                <span className="relative inline-flex rounded-full h-2 w-2 bg-scarlet"></span>
-                                            </span>
-                                            <span className="text-[9px] font-black uppercase tracking-widest text-white">LIVE SLOTS</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="w-full h-full bg-white">
-                                        <iframe
-                                            src="https://calendar.app.google/1q7FMW47477Tb1TLA"
-                                            style={{ border: 0 }}
-                                            width="100%"
-                                            height="796"
-                                            frameBorder="0"
-                                            className="bg-white"
-                                        ></iframe>
-                                    </div>
-                                </div>
+                                {/* Custom Bespoke Scheduler */}
+                                <BespokeScheduler />
                             </div>
 
                             <div className="flex flex-col sm:flex-row items-center justify-between mt-10 gap-8 px-4">
