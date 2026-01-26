@@ -103,11 +103,11 @@ const Booking: React.FC = () => {
                                 {/* Decorative border glow */}
                                 <div className="absolute -inset-1 bg-gradient-to-r from-scarlet/20 via-white/5 to-scarlet/20 rounded-[45px] blur-sm opacity-50 group-hover:opacity-100 transition duration-1000"></div>
 
-                                <div className="relative bg-[#111111] border-2 border-white/20 rounded-[40px] shadow-2xl overflow-hidden min-h-[750px] sm:min-h-[850px]">
-                                    {/* Desktop Loader / Header */}
-                                    <div className="w-full h-14 bg-white/10 border-b border-white/10 flex items-center justify-between px-8">
+                                <div className="relative bg-white border-2 border-white rounded-[40px] shadow-[0_0_50px_-12px_rgba(220,38,38,0.5)] overflow-hidden min-h-[750px] sm:min-h-[850px]">
+                                    {/* System Header */}
+                                    <div className="w-full h-14 bg-obsidian border-b border-white/10 flex items-center justify-between px-8">
                                         <div className="flex gap-2">
-                                            <div className="w-3 h-3 rounded-full bg-scarlet/50"></div>
+                                            <div className="w-3 h-3 rounded-full bg-scarlet"></div>
                                             <div className="w-3 h-3 rounded-full bg-white/20"></div>
                                             <div className="w-3 h-3 rounded-full bg-white/20"></div>
                                         </div>
@@ -121,15 +121,15 @@ const Booking: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    {/* The Iframe with better container */}
-                                    <div className="w-full h-full p-1 sm:p-4 bg-white/[0.02]">
+                                    {/* The Iframe with clean white background for total readability */}
+                                    <div className="w-full h-full bg-white">
                                         <iframe
                                             src="https://calendar.app.google/1q7FMW47477Tb1TLA"
-                                            style={{ border: 0, borderRadius: '24px', filter: 'contrast(1.1) brightness(1.1)' }}
+                                            style={{ border: 0 }}
                                             width="100%"
-                                            height="750"
+                                            height="796"
                                             frameBorder="0"
-                                            className="bg-transparent"
+                                            className="bg-white"
                                         ></iframe>
                                     </div>
                                 </div>
