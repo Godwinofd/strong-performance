@@ -14,7 +14,24 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+// Disable automatic body parsing by Vercel/Next.js to get raw body for Stripe
+export const config = {
+    api: {
+        bodyParser: false,
+    },
+};
+
+// Helper to read raw body from stream
+async function getRawBody(readable) {
+    const chunks = [];
+    for await (const chunk of readable) {
+        chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
+    }
+    return Buffer.concat(chunks);
+}
+
 export default async function handler(req, res) {
+    console.log('Webhook received:', req.method);
     if (req.method !== 'POST') {
         res.setHeader('Allow', 'POST');
         return res.status(405).end('Method Not Allowed');
@@ -23,15 +40,24 @@ export default async function handler(req, res) {
     const sig = req.headers['stripe-signature'];
     const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
+    if (!sig || !webhookSecret) {
+        console.error('Missing stripe-signature or STRIPE_WEBHOOK_SECRET');
+        return res.status(400).send('Missing signature or secret');
+    }
+
     let event;
 
     try {
+        // Get raw body for signature verification
+        const rawBody = await getRawBody(req);
         // Verify webhook signature
-        event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
+        event = stripe.webhooks.constructEvent(rawBody, sig, webhookSecret);
     } catch (err) {
         console.error('Webhook signature verification failed:', err.message);
         return res.status(400).send(`Webhook Error: ${err.message}`);
     }
+
+    console.log('Webhook verified:', event.type);
 
     // Handle the checkout.session.completed event
     if (event.type === 'checkout.session.completed') {
