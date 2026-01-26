@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { PRODUCTS, PLANS } from '../constants';
 import { useCart } from '../CartContext';
+import ContactForm from '../components/ContactForm';
 
 const Home: React.FC = () => {
   const { addToCart } = useCart();
@@ -417,40 +418,11 @@ const Home: React.FC = () => {
 
             <div className="lg:col-span-6 flex justify-center lg:justify-end">
               <div className="max-w-xl w-full">
-                <div className="bg-black/95 backdrop-blur-3xl p-10 md:p-14 rounded-[50px] border border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] relative">
-                  <div className="mb-12">
-                    <h3 className="text-3xl font-black text-white uppercase tracking-tight mb-3">Get In Touch</h3>
-                    <p className="text-steel text-sm font-medium opacity-60">Ready to start your transformation?</p>
+                {/* Right: Bespoke Form Card */}
+                <div className="lg:col-span-6 flex justify-center lg:justify-end">
+                  <div className="max-w-xl w-full">
+                    <ContactForm />
                   </div>
-
-                  <form className="space-y-6">
-                    <div className="space-y-2 text-left">
-                      <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Your Name</label>
-                      <input type="text" placeholder="Your name" className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet focus:bg-white/10 transition-all shadow-inner" />
-                    </div>
-                    <div className="space-y-2 text-left">
-                      <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Email Address</label>
-                      <input type="email" placeholder="your@email.com" className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm focus:border-scarlet focus:bg-white/10 transition-all shadow-inner" />
-                    </div>
-                    <div className="space-y-2 text-left">
-                      <label className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em] ml-2">Your Goals</label>
-                      <textarea rows={4} placeholder="Tell us about your fitness goals..." className="w-full bg-white/5 border border-white/10 p-6 rounded-[25px] outline-none text-white text-sm resize-none focus:border-scarlet focus:bg-white/10 transition-all shadow-inner"></textarea>
-                    </div>
-
-                    <div className="pt-8">
-                      <button type="button" className="cta-base cta-primary w-full !min-h-[64px]">
-                        SEND MESSAGE
-                        <span className="cta-icon-circle !w-10 !h-10">
-                          <ArrowRight className="w-6 h-6" />
-                        </span>
-                      </button>
-                    </div>
-
-                    <div className="flex items-center justify-center gap-3 pt-10 opacity-40">
-                      <ShieldCheck className="w-4 h-4 text-scarlet" />
-                      <span className="text-[9px] font-black uppercase tracking-widest text-white">Your Privacy is Protected</span>
-                    </div>
-                  </form>
                 </div>
               </div>
             </div>
