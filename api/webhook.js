@@ -100,7 +100,7 @@ export default async function handler(req, res) {
             // Generate HTML email
             const emailHtml = generateOrderEmail(emailData);
 
-            // Send confirmation email
+            // 1. Send confirmation email to the customer
             await transporter.sendMail({
                 from: `"Strong Performance" <${process.env.GMAIL_USER}>`,
                 to: customerEmail,
@@ -108,7 +108,25 @@ export default async function handler(req, res) {
                 html: emailHtml,
             });
 
-            console.log(`Order confirmation sent for ${orderNumber} to ${customerEmail}`);
+            // 2. Send notification email to the business (YOU)
+            await transporter.sendMail({
+                from: `"Order System" <${process.env.GMAIL_USER}>`,
+                to: process.env.GMAIL_USER,
+                subject: `🚀 NEW ORDER RECEIVED - ${orderNumber}`,
+                html: `
+                  <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+                    <h2 style="color: #DC2626;">You have a new order!</h2>
+                    <p><strong>Order Number:</strong> ${orderNumber}</p>
+                    <p><strong>Customer:</strong> ${customerName} (${customerEmail})</p>
+                    <p><strong>Total:</strong> £${total.toFixed(2)}</p>
+                    <p><strong>Shipping Address:</strong><br>${shippingAddress}</p>
+                    <hr />
+                    <p>Check your Stripe Dashboard for more details.</p>
+                  </div>
+                `,
+            });
+
+            console.log(`Order emails sent for ${orderNumber}`);
 
             // Return success
             return res.status(200).json({
