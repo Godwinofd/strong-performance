@@ -90,9 +90,9 @@ const Checkout: React.FC = () => {
           <h1 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter">SUCCESS</h1>
           <p className="text-steel text-lg mb-12 font-medium">Your order has been placed successfully. Check your email for confirmation.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link to="/" onClick={() => { setIsOrdered(false); clearCart(); }} className="bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-wide hover:bg-white/90 transition-all">
+            <a href="/" onClick={() => clearCart()} className="bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-wide hover:bg-white/90 transition-all">
               Return Home
-            </Link>
+            </a>
           </div>
         </div>
       </div>
