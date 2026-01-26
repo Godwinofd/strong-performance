@@ -173,20 +173,21 @@ const Contact: React.FC = () => {
                           ></textarea>
                         </div>
 
-                        <div className="pt-8">
+                        <div className="pt-8 w-full">
                           <button
                             type="submit"
                             disabled={status === 'loading'}
-                            className="cta-base cta-primary w-full !min-h-[64px] disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden"
+                            className="w-full bg-scarlet rounded-full h-[70px] flex items-center justify-between px-8 transition-all hover:bg-white hover:text-black group disabled:opacity-50 disabled:cursor-not-allowed"
                           >
-                            <span className="relative z-10 flex items-center justify-center gap-4">
+                            <span className="text-sm font-black uppercase tracking-[0.2em] text-white group-hover:text-black">
                               {status === 'loading' ? 'SENDING...' : 'SEND MESSAGE'}
-                              {!status.includes('loading') && (
-                                <span className="cta-icon-circle !w-10 !h-10 group-hover:translate-x-1 transition-transform">
-                                  <ArrowRight className="w-6 h-6" />
-                                </span>
-                              )}
                             </span>
+
+                            {!status.includes('loading') && (
+                              <div className="h-10 w-10 bg-white rounded-full flex items-center justify-center group-hover:bg-black transition-colors">
+                                <ArrowRight className="w-5 h-5 text-scarlet group-hover:text-white" />
+                              </div>
+                            )}
                           </button>
                         </div>
 
