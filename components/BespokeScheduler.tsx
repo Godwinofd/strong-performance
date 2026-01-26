@@ -68,25 +68,25 @@ const BespokeScheduler: React.FC = () => {
             <div className="flex-grow bg-black p-4 md:p-6 text-white">
 
                 {view === 'calendar' && (
-                    <div className="animate-in fade-in slide-in-from-right-4 duration-500 h-full flex flex-col items-center bg-obsidian text-white">
-                        <div className="w-full flex justify-between items-center mb-6 px-4 pt-4">
-                            <h4 className="text-xl font-black uppercase tracking-tight">
+                    <div className="animate-in fade-in slide-in-from-right-4 duration-500 h-full flex flex-col items-center bg-obsidian text-white w-full">
+                        <div className="w-full flex justify-between items-center mb-8 px-4 pt-4">
+                            <h4 className="text-3xl font-black uppercase tracking-tight">
                                 {currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}
                             </h4>
-                            <div className="flex gap-2">
-                                <button type="button" onClick={prevMonth} className="p-2 hover:bg-white/10 rounded-full transition-colors"><ChevronLeft className="w-5 h-5 text-white" /></button>
-                                <button type="button" onClick={nextMonth} className="p-2 hover:bg-white/10 rounded-full transition-colors"><ChevronRight className="w-5 h-5 text-white" /></button>
+                            <div className="flex gap-4">
+                                <button type="button" onClick={prevMonth} className="p-4 hover:bg-white/10 rounded-full transition-colors"><ChevronLeft className="w-6 h-6 text-white" /></button>
+                                <button type="button" onClick={nextMonth} className="p-4 hover:bg-white/10 rounded-full transition-colors"><ChevronRight className="w-6 h-6 text-white" /></button>
                             </div>
                         </div>
 
-                        <div className="w-full max-w-sm px-4">
-                            <div className="grid grid-cols-7 mb-2 text-center">
+                        <div className="w-full px-4 md:px-8 flex-grow flex flex-col justify-center">
+                            <div className="grid grid-cols-7 mb-4 text-center">
                                 {weekDays.map(day => (
-                                    <div key={day} className="text-[9px] font-black text-white/50 uppercase tracking-widest py-2">{day}</div>
+                                    <div key={day} className="text-xs font-black text-white/50 uppercase tracking-widest py-2">{day}</div>
                                 ))}
                             </div>
 
-                            <div className="grid grid-cols-7 gap-1 auto-rows-fr">
+                            <div className="grid grid-cols-7 gap-2 md:gap-4 auto-rows-fr w-full">
                                 {/* Empty cells for start of month */}
                                 {Array.from({ length: new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1).getDay() }).map((_, i) => (
                                     <div key={`empty-${i}`} className="w-full aspect-square"></div>
@@ -103,9 +103,9 @@ const BespokeScheduler: React.FC = () => {
                                             disabled={isPast}
                                             onClick={() => handleDateSelect(date)}
                                             className={`
-                                                w-full aspect-square rounded-full flex items-center justify-center text-sm font-bold transition-all relative
+                                                w-full aspect-square rounded-2xl flex items-center justify-center text-lg md:text-xl font-bold transition-all relative
                                                 ${isSelected
-                                                    ? 'bg-scarlet text-white shadow-lg scale-110 z-10'
+                                                    ? 'bg-scarlet text-white shadow-xl scale-105 z-10'
                                                     : 'text-white hover:bg-white/10'}
                                                 ${isToday && !isSelected ? 'text-scarlet border-2 border-scarlet/50' : ''}
                                                 ${isPast ? 'opacity-20 cursor-not-allowed hover:bg-transparent' : ''}
