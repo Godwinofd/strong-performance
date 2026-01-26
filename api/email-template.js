@@ -2,12 +2,12 @@
  * Generate branded HTML email template for order confirmation
  */
 export function generateOrderEmail(orderData) {
-    const { orderNumber, customerName, customerEmail, items, total, shippingAddress } = orderData;
+  const { orderNumber, customerName, customerEmail, items, total, shippingAddress } = orderData;
 
-    // Calculate subtotal
-    const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  // Calculate subtotal
+  const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-    return `
+  return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -210,6 +210,7 @@ export function generateOrderEmail(orderData) {
   <div class="email-container">
     <!-- Header -->
     <div class="header">
+      <img src="https://strongperformance.training/images/logos/Strong%20performance%20white%20logo.png" alt="Strong Performance" class="logo">
       <h1>Order Confirmation</h1>
     </div>
 
