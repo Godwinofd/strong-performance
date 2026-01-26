@@ -1,45 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Mail, Instagram, Clock, MapPin, Send, ArrowRight, Star, Quote, CheckCircle2, ShieldCheck } from 'lucide-react';
+import ContactForm from '../components/ContactForm';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    goals: ''
-  });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', goals: '' }); // Reset form
-      } else {
-        setStatus('error');
-      }
-    } catch (error) {
-      console.error(error);
-      setStatus('error');
-    }
-  };
 
   return (
     <div className="pt-20">
