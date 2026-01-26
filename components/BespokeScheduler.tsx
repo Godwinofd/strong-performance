@@ -115,7 +115,6 @@ const BespokeScheduler: React.FC = () => {
             )}
 
         </div>
-        </div >
     );
 };
 
