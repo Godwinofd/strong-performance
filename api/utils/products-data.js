@@ -21,5 +21,8 @@ export const PRODUCTS_DATA = [
     { id: 'tshirt-milgreen-small', name: 'Military Green T-Shirt (Small Logo)', price: 25 },
     { id: 'tracksuit-black-grey', name: 'Black/Grey Tracksuit', price: 70 },
     { id: 'tracksuit-black-red', name: 'Black/Red Tracksuit', price: 70 },
-    { id: 'tracksuit-black-white', name: 'Black/White Tracksuit', price: 70 }
+    { id: 'tracksuit-black-white', name: 'Black/White Tracksuit', price: 70 },
+    { id: 'addon-video', name: 'Video Check-In', price: 45 },
+    { id: 'addon-meal', name: 'Custom Meal Prep', price: 25 },
+    { id: 'addon-form', name: 'Form Review', price: 30 }
 ];

@@ -179,20 +179,28 @@ const Services: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              { title: "Video Check-Ins", price: "45", desc: "45-minute tactical deep dive to adjust strategy and technical form metrics." },
-              { title: "Custom Meal Prep", price: "25", desc: "Engineered shopping lists and recipe macros tailored for your metabolism." },
-              { title: "Form Review", price: "30", desc: "Biomechanical analysis of lift videos via dedicated secure channel." },
+              { id: 'addon-video', title: "Video Check-Ins", price: "45", desc: "45-minute tactical deep dive to adjust strategy and technical form metrics." },
+              { id: 'addon-meal', title: "Custom Meal Prep", price: "25", desc: "Engineered shopping lists and recipe macros tailored for your metabolism." },
+              { id: 'addon-form', title: "Form Review", price: "30", desc: "Biomechanical analysis of lift videos via dedicated secure channel." },
             ].map((item, i) => (
               <div key={i} className="group p-12 bg-white/5 border border-white/5 rounded-[40px] hover:border-scarlet/30 transition-all duration-700 flex flex-col items-center text-center">
                 <h3 className="font-black text-2xl mb-4 uppercase tracking-tighter text-white">{item.title}</h3>
                 <div className="flex items-baseline gap-1 mb-6">
                   <span className="text-4xl font-black text-scarlet italic serif-font">£{item.price}</span>
-                  <span className="text-[10px] font-black text-steel tracking-widest uppercase">/ UNIT</span>
                 </div>
                 <p className="text-steel text-sm mb-12 font-medium leading-relaxed opacity-60 flex-grow">
                   {item.desc}
                 </p>
-                <button className="text-[10px] font-black tracking-[0.4em] uppercase border-b-2 border-scarlet pb-1 text-white hover:text-scarlet transition-all transform hover:scale-105 active:scale-95">
+                <button
+                  onClick={() => addToCart({
+                    id: item.id,
+                    name: item.title,
+                    price: parseInt(item.price),
+                    quantity: 1,
+                    type: 'product'
+                  })}
+                  className="text-[10px] font-black tracking-[0.4em] uppercase border-b-2 border-scarlet pb-1 text-white hover:text-scarlet transition-all transform hover:scale-105 active:scale-95"
+                >
                   ADD THIS
                 </button>
               </div>

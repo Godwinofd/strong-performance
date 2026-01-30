@@ -252,7 +252,8 @@ export const PRODUCTS: Product[] = [
     category: 'Tracksuits',
     image: '/images/tracksuits/Tracksuit black-grey.png',
     description: 'Complete tracksuit set with zip-up jacket and jogger pants. Black with grey accents.',
-    specs: ['Polyester Blend', 'Zip-up Jacket', 'Elastic Waist Pants', 'Available in S-XXL']
+    specs: ['Polyester Blend', 'Zip-up Jacket', 'Elastic Waist Pants', 'Available in S-XXL'],
+    hoverImage: '/images/tracksuits/Tracksuit black-grey.png'
   },
   {
     id: 'tracksuit-black-red',
@@ -261,7 +262,8 @@ export const PRODUCTS: Product[] = [
     category: 'Tracksuits',
     image: '/images/tracksuits/Tracksuit black-red.png',
     description: 'Complete tracksuit set with zip-up jacket and jogger pants. Black with red accents.',
-    specs: ['Polyester Blend', 'Zip-up Jacket', 'Elastic Waist Pants', 'Available in S-XXL']
+    specs: ['Polyester Blend', 'Zip-up Jacket', 'Elastic Waist Pants', 'Available in S-XXL'],
+    hoverImage: '/images/tracksuits/Tracksuit black-red.png'
   },
   {
     id: 'tracksuit-black-white',
@@ -270,6 +272,34 @@ export const PRODUCTS: Product[] = [
     category: 'Tracksuits',
     image: '/images/tracksuits/Tracksuit black-white.png',
     description: 'Complete tracksuit set with zip-up jacket and jogger pants. Black with white accents.',
-    specs: ['Polyester Blend', 'Zip-up Jacket', 'Elastic Waist Pants', 'Available in S-XXL']
+    specs: ['Polyester Blend', 'Zip-up Jacket', 'Elastic Waist Pants', 'Available in S-XXL'],
+    hoverImage: '/images/tracksuits/Tracksuit black-white.png'
+  },
+  {
+    id: 'addon-video',
+    name: 'Video Check-In',
+    price: 45,
+    category: 'Tracksuits',
+    image: '',
+    hoverImage: '',
+    description: '45-minute tactical deep dive to adjust strategy and technical form metrics.'
+  },
+  {
+    id: 'addon-meal',
+    name: 'Custom Meal Prep',
+    price: 25,
+    category: 'Tracksuits',
+    image: '',
+    hoverImage: '',
+    description: 'Engineered shopping lists and recipe macros tailored for your metabolism.'
+  },
+  {
+    id: 'addon-form',
+    name: 'Form Review',
+    price: 30,
+    category: 'Tracksuits',
+    image: '',
+    hoverImage: '',
+    description: 'Biomechanical analysis of lift videos via dedicated secure channel.'
   }
 ];
