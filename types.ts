@@ -17,7 +17,13 @@ export interface Plan {
   icon: string;
 }
 
-export type ProductCategory = 'T-Shirts' | 'Tracksuits';
+export type ProductCategory = 'T-Shirts' | 'Tracksuits' | 'Supplements';
+
+export interface ProductVariant {
+  id: string;       // original product id used for cart
+  label: string;    // e.g. "Large Logo" | "Small Logo"
+  image: string;
+}
 
 export interface Product {
   id: string;
@@ -29,6 +35,8 @@ export interface Product {
   description?: string;
   specs?: string[];
   isComingSoon?: boolean;
+  /** When set, this card groups multiple purchasable variants (e.g. logo styles) */
+  variants?: ProductVariant[];
 }
 
 export interface CartItem {

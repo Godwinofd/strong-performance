@@ -68,180 +68,118 @@ export const PLANS: Plan[] = [
 ];
 
 export const PRODUCTS: Product[] = [
-  // T-SHIRTS - Black
+  // T-SHIRTS - grouped by colour (one card per colour, variants = logo styles)
   {
-    id: 'tshirt-black-big',
-    name: 'Black T-Shirt (Large Logo)',
+    id: 'tshirt-black',
+    name: 'Black T-Shirt',
     price: 25,
     category: 'T-Shirts',
     image: '/images/t-shirts/T-shirt black big logo.png',
     hoverImage: '/images/t-shirts/T-shirt black small logo.png',
-    description: 'Premium cotton t-shirt with large Strong Performance logo. Perfect for training or casual wear.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
+    description: 'Premium cotton t-shirt in black. Choose your logo style below.',
+    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL'],
+    variants: [
+      { id: 'tshirt-black-big', label: 'Large Logo', image: '/images/t-shirts/T-shirt black big logo.png' },
+      { id: 'tshirt-black-small', label: 'Small Logo', image: '/images/t-shirts/T-shirt black small logo.png' },
+    ]
   },
   {
-    id: 'tshirt-black-small',
-    name: 'Black T-Shirt (Small Logo)',
-    price: 25,
-    category: 'T-Shirts',
-    image: '/images/t-shirts/T-shirt black small logo.png',
-    hoverImage: '/images/t-shirts/T-shirt black big logo.png',
-    description: 'Premium cotton t-shirt with subtle Strong Performance logo. Clean and minimal design.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
-  },
-
-  // T-SHIRTS - White
-  {
-    id: 'tshirt-white-big',
-    name: 'White T-Shirt (Large Logo)',
+    id: 'tshirt-white',
+    name: 'White T-Shirt',
     price: 25,
     category: 'T-Shirts',
     image: '/images/t-shirts/T-shirt white big logo.png',
     hoverImage: '/images/t-shirts/T-shirt white small logo.png',
-    description: 'Classic white t-shirt with large Strong Performance logo. Essential training wear.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
+    description: 'Classic white t-shirt. Choose your logo style below.',
+    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL'],
+    variants: [
+      { id: 'tshirt-white-big', label: 'Large Logo', image: '/images/t-shirts/T-shirt white big logo.png' },
+      { id: 'tshirt-white-small', label: 'Small Logo', image: '/images/t-shirts/T-shirt white small logo.png' },
+    ]
   },
   {
-    id: 'tshirt-white-small',
-    name: 'White T-Shirt (Small Logo)',
-    price: 25,
-    category: 'T-Shirts',
-    image: '/images/t-shirts/T-shirt white small logo.png',
-    hoverImage: '/images/t-shirts/T-shirt white big logo.png',
-    description: 'Classic white t-shirt with subtle Strong Performance logo.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
-  },
-
-  // T-SHIRTS - Navy
-  {
-    id: 'tshirt-navy-big',
-    name: 'Navy T-Shirt (Large Logo)',
+    id: 'tshirt-navy',
+    name: 'Navy T-Shirt',
     price: 25,
     category: 'T-Shirts',
     image: '/images/t-shirts/T-shirt navy big logo.png',
     hoverImage: '/images/t-shirts/T-shirt navy small logo.png',
-    description: 'Navy blue t-shirt with large Strong Performance logo. Versatile and stylish.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
+    description: 'Navy blue t-shirt. Versatile and stylish. Choose your logo style below.',
+    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL'],
+    variants: [
+      { id: 'tshirt-navy-big', label: 'Large Logo', image: '/images/t-shirts/T-shirt navy big logo.png' },
+      { id: 'tshirt-navy-small', label: 'Small Logo', image: '/images/t-shirts/T-shirt navy small logo.png' },
+    ]
   },
   {
-    id: 'tshirt-navy-small',
-    name: 'Navy T-Shirt (Small Logo)',
-    price: 25,
-    category: 'T-Shirts',
-    image: '/images/t-shirts/T-shirt navy small logo.png',
-    hoverImage: '/images/t-shirts/T-shirt navy big logo.png',
-    description: 'Navy blue t-shirt with subtle Strong Performance logo.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
-  },
-
-  // T-SHIRTS - Grey
-  {
-    id: 'tshirt-grey-big',
-    name: 'Grey T-Shirt (Large Logo)',
+    id: 'tshirt-grey',
+    name: 'Grey T-Shirt',
     price: 25,
     category: 'T-Shirts',
     image: '/images/t-shirts/T-shirt grey big logo.png',
     hoverImage: '/images/t-shirts/T-shirt grey small logo.png',
-    description: 'Heather grey t-shirt with large Strong Performance logo. Perfect everyday wear.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
+    description: 'Heather grey t-shirt. Perfect everyday wear. Choose your logo style below.',
+    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL'],
+    variants: [
+      { id: 'tshirt-grey-big', label: 'Large Logo', image: '/images/t-shirts/T-shirt grey big logo.png' },
+      { id: 'tshirt-grey-small', label: 'Small Logo', image: '/images/t-shirts/T-shirt grey small logo.png' },
+    ]
   },
   {
-    id: 'tshirt-grey-small',
-    name: 'Grey T-Shirt (Small Logo)',
-    price: 25,
-    category: 'T-Shirts',
-    image: '/images/t-shirts/T-shirt grey small logo.png',
-    hoverImage: '/images/t-shirts/T-shirt grey big logo.png',
-    description: 'Heather grey t-shirt with subtle Strong Performance logo.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
-  },
-
-  // T-SHIRTS - Maroon
-  {
-    id: 'tshirt-maroon-big',
-    name: 'Maroon T-Shirt (Large Logo)',
+    id: 'tshirt-maroon',
+    name: 'Maroon T-Shirt',
     price: 25,
     category: 'T-Shirts',
     image: '/images/t-shirts/T-shirt maroon big logo.png',
     hoverImage: '/images/t-shirts/T-shirt maroon small logo.png',
-    description: 'Bold maroon t-shirt with large Strong Performance logo. Stand out in style.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
+    description: 'Bold maroon t-shirt. Stand out in style. Choose your logo style below.',
+    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL'],
+    variants: [
+      { id: 'tshirt-maroon-big', label: 'Large Logo', image: '/images/t-shirts/T-shirt maroon big logo.png' },
+      { id: 'tshirt-maroon-small', label: 'Small Logo', image: '/images/t-shirts/T-shirt maroon small logo.png' },
+    ]
   },
   {
-    id: 'tshirt-maroon-small',
-    name: 'Maroon T-Shirt (Small Logo)',
-    price: 25,
-    category: 'T-Shirts',
-    image: '/images/t-shirts/T-shirt maroon small logo.png',
-    hoverImage: '/images/t-shirts/T-shirt maroon big logo.png',
-    description: 'Bold maroon t-shirt with subtle Strong Performance logo.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
-  },
-
-  // T-SHIRTS - Blue
-  {
-    id: 'tshirt-blue-big',
-    name: 'Blue T-Shirt (Large Logo)',
+    id: 'tshirt-blue',
+    name: 'Blue T-Shirt',
     price: 25,
     category: 'T-Shirts',
     image: '/images/t-shirts/T-shirt blue big logo.png',
     hoverImage: '/images/t-shirts/T-shirt blue small logo.png',
-    description: 'Vibrant blue t-shirt with large Strong Performance logo.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
+    description: 'Vibrant blue t-shirt. Choose your logo style below.',
+    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL'],
+    variants: [
+      { id: 'tshirt-blue-big', label: 'Large Logo', image: '/images/t-shirts/T-shirt blue big logo.png' },
+      { id: 'tshirt-blue-small', label: 'Small Logo', image: '/images/t-shirts/T-shirt blue small logo.png' },
+    ]
   },
   {
-    id: 'tshirt-blue-small',
-    name: 'Blue T-Shirt (Small Logo)',
-    price: 25,
-    category: 'T-Shirts',
-    image: '/images/t-shirts/T-shirt blue small logo.png',
-    hoverImage: '/images/t-shirts/T-shirt blue big logo.png',
-    description: 'Vibrant blue t-shirt with subtle Strong Performance logo.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
-  },
-
-  // T-SHIRTS - Corn Blue
-  {
-    id: 'tshirt-cornblue-big',
-    name: 'Corn Blue T-Shirt (Large Logo)',
+    id: 'tshirt-cornblue',
+    name: 'Corn Blue T-Shirt',
     price: 25,
     category: 'T-Shirts',
     image: '/images/t-shirts/T-shirt corn blue big logo.png',
     hoverImage: '/images/t-shirts/T-shirt corn blue small logo.png',
-    description: 'Light corn blue t-shirt with large Strong Performance logo.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
+    description: 'Light corn blue t-shirt. Choose your logo style below.',
+    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL'],
+    variants: [
+      { id: 'tshirt-cornblue-big', label: 'Large Logo', image: '/images/t-shirts/T-shirt corn blue big logo.png' },
+      { id: 'tshirt-cornblue-small', label: 'Small Logo', image: '/images/t-shirts/T-shirt corn blue small logo.png' },
+    ]
   },
   {
-    id: 'tshirt-cornblue-small',
-    name: 'Corn Blue T-Shirt (Small Logo)',
-    price: 25,
-    category: 'T-Shirts',
-    image: '/images/t-shirts/T-shirt corn blue small logo.png',
-    hoverImage: '/images/t-shirts/T-shirt corn blue big logo.png',
-    description: 'Light corn blue t-shirt with subtle Strong Performance logo.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
-  },
-
-  // T-SHIRTS - Military Green
-  {
-    id: 'tshirt-milgreen-big',
-    name: 'Military Green T-Shirt (Large Logo)',
+    id: 'tshirt-milgreen',
+    name: 'Military Green T-Shirt',
     price: 25,
     category: 'T-Shirts',
     image: '/images/t-shirts/T-shirt mil green big logo.png',
     hoverImage: '/images/t-shirts/T-shirt mil green small logo.png',
-    description: 'Military green t-shirt with large Strong Performance logo. Tactical style.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
-  },
-  {
-    id: 'tshirt-milgreen-small',
-    name: 'Military Green T-Shirt (Small Logo)',
-    price: 25,
-    category: 'T-Shirts',
-    image: '/images/t-shirts/T-shirt mil green small logo.png',
-    hoverImage: '/images/t-shirts/T-shirt mil green big logo.png',
-    description: 'Military green t-shirt with subtle Strong Performance logo.',
-    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL']
+    description: 'Military green t-shirt. Tactical style. Choose your logo style below.',
+    specs: ['100% Premium Cotton', 'Regular Fit', 'Machine Washable', 'Available in S-XXL'],
+    variants: [
+      { id: 'tshirt-milgreen-big', label: 'Large Logo', image: '/images/t-shirts/T-shirt mil green big logo.png' },
+      { id: 'tshirt-milgreen-small', label: 'Small Logo', image: '/images/t-shirts/T-shirt mil green small logo.png' },
+    ]
   },
 
   // TRACKSUITS
@@ -275,31 +213,26 @@ export const PRODUCTS: Product[] = [
     specs: ['Polyester Blend', 'Zip-up Jacket', 'Elastic Waist Pants', 'Available in S-XXL'],
     hoverImage: '/images/tracksuits/Tracksuit black-white.png'
   },
+
+  // SUPPLEMENTS
   {
-    id: 'addon-video',
-    name: 'Video Check-In',
-    price: 45,
-    category: 'Tracksuits',
-    image: '',
-    hoverImage: '',
-    description: '45-minute tactical deep dive to adjust strategy and technical form metrics.'
-  },
-  {
-    id: 'addon-meal',
-    name: 'Custom Meal Prep',
+    id: 'preworkout-mango',
+    name: 'Pre-Workout Powder — Mango',
     price: 25,
-    category: 'Tracksuits',
-    image: '',
-    hoverImage: '',
-    description: 'Engineered shopping lists and recipe macros tailored for your metabolism.'
+    category: 'Supplements',
+    image: '/images/suplements/mango_flavour.png',
+    hoverImage: '/images/suplements/mango_flavour.png',
+    description: 'Petther Performance Pre-Workout Powder in Mango flavour. 25 servings per tub (375g). Engineered to fuel explosive energy, laser focus, and maximum endurance — so you can push harder every session.',
+    specs: ['25 Servings', 'Net Wt. 375g (13.22oz)', 'Mango Flavour', 'Dietary Supplement', 'Mix 1 scoop with 250ml water 20–30 min before training']
   },
   {
-    id: 'addon-form',
-    name: 'Form Review',
-    price: 30,
-    category: 'Tracksuits',
-    image: '',
-    hoverImage: '',
-    description: 'Biomechanical analysis of lift videos via dedicated secure channel.'
+    id: 'preworkout-blueberry',
+    name: 'Pre-Workout Powder — Blueberry',
+    price: 25,
+    category: 'Supplements',
+    image: '/images/suplements/blueberry_flavour.png',
+    hoverImage: '/images/suplements/blueberry_flavour.png',
+    description: 'Petther Performance Pre-Workout Powder in Blueberry flavour. 25 servings per tub (425g). Engineered to fuel explosive energy, laser focus, and maximum endurance — so you can push harder every session.',
+    specs: ['25 Servings', 'Net Wt. 425g (14.99oz)', 'Blueberry Flavour', 'Dietary Supplement', 'Mix 1 scoop with 250ml water 20–30 min before training']
   }
 ];
