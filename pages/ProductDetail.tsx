@@ -80,7 +80,8 @@ const ProductDetail: React.FC = () => {
                 key={heroImage}
                 src={heroImage}
                 alt={product.name}
-                className="w-full h-full object-contain p-12 transition-all duration-700"
+                className={`w-full h-full duration-700 transition-all ${product.category === 'Supplements' ? 'object-cover' : 'object-contain p-12'
+                  }`}
               />
             </div>
 
