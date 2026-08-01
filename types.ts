@@ -17,7 +17,7 @@ export interface Plan {
   icon: string;
 }
 
-export type ProductCategory = 'T-Shirts' | 'Tracksuits' | 'Supplements';
+export type ProductCategory = 'T-Shirts' | 'Tracksuits' | 'Supplements' | 'Accessories';
 
 export interface ProductVariant {
   id: string;       // original product id used for cart
