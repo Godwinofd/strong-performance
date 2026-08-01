@@ -27,20 +27,17 @@ const ProductDetail: React.FC = () => {
   }
 
   const hasVariants = product.variants && product.variants.length > 0;
+  const isApparel = product.category === 'T-Shirts' || product.category === 'Tracksuits';
 
   // Hero image: if variant selected, show that; otherwise product default
   const heroImage = selectedVariant ? selectedVariant.image : product.image;
-
-  // For non-variant products, still show thumbnails as before
   const plainImages = [product.image, product.hoverImage || product.image];
-
   const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
   const handleAddToCart = () => {
-    if (hasVariants && !selectedVariant) return; // guard: must pick a variant
+    if (hasVariants && !selectedVariant) return;
 
     const cartId = hasVariants && selectedVariant ? selectedVariant.id : product.id;
-    const isApparel = product.category !== 'Supplements';
     const cartName = hasVariants && selectedVariant
       ? `${product.name} (${selectedVariant.label})${isApparel ? ` - Size ${selectedSize}` : ''}`
       : `${product.name}${isApparel ? ` - Size ${selectedSize}` : ''}`;
@@ -74,7 +71,6 @@ const ProductDetail: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* ── Left: Images ── */}
           <div className="space-y-6">
-            {/* Hero image */}
             <div className="relative aspect-square overflow-hidden rounded-3xl bg-white/5 border border-white/10 transition-all duration-500">
               <img
                 key={heroImage}
@@ -85,9 +81,7 @@ const ProductDetail: React.FC = () => {
               />
             </div>
 
-            {/* Thumbnails */}
             {hasVariants ? (
-              /* Variant thumbnails — Large Logo / Small Logo */
               <div className="flex gap-4">
                 {product.variants!.map((v) => (
                   <button
@@ -107,7 +101,6 @@ const ProductDetail: React.FC = () => {
                 ))}
               </div>
             ) : (
-              /* Plain thumbnails for non-variant products */
               <div className="flex gap-4">
                 {plainImages.map((img, idx) => (
                   <button
@@ -133,12 +126,10 @@ const ProductDetail: React.FC = () => {
               </p>
             </div>
 
-            {/* Price */}
             <div className="flex items-baseline gap-4 pt-4 border-t border-white/10">
               <span className="text-5xl font-black text-white">£{product.price}</span>
             </div>
 
-            {/* ── Logo Style Selection (variants only) ── */}
             {hasVariants && (
               <div>
                 <label className="text-sm font-bold text-white uppercase tracking-wide mb-3 block">
@@ -165,7 +156,7 @@ const ProductDetail: React.FC = () => {
             )}
 
             {/* Size Selection — only for apparel */}
-            {product.category !== 'Supplements' && (
+            {isApparel && (
               <div>
                 <label className="text-sm font-bold text-white uppercase tracking-wide mb-3 block">
                   Select Size
