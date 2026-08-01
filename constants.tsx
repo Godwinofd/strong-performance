@@ -242,8 +242,8 @@ export const PRODUCTS: Product[] = [
     name: 'Protein Shaker Bottle — 700ml',
     price: 10,
     category: 'Accessories',
-    image: '/images/accessories/shaker-yellow.jpg',
-    hoverImage: '/images/accessories/shaker-yellow.jpg',
+    image: '/images/accessories/shaker-yellow.png',
+    hoverImage: '/images/accessories/shaker-yellow.png',
     description: '700ml premium sports performance protein shake bottle. Engineered with a durable leak-proof lid and internal mixer for smooth, clump-free shakes on the go.',
     specs: ['700ml Capacity with Measurement Markings', 'BPA-Free & Food-Grade Durable Plastic', 'Leak-Proof Flip Cap & Secure Screw-On Lid', 'Internal Blender Grid for Smooth Mixing', 'Signature Strong Performance Red Branding']
   }
