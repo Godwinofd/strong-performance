@@ -234,5 +234,17 @@ export const PRODUCTS: Product[] = [
     hoverImage: '/images/suplements/blueberry_flavour.png',
     description: 'Petther Performance Pre-Workout Powder in Blueberry flavour. 25 servings per tub (425g). Engineered to fuel explosive energy, laser focus, and maximum endurance — so you can push harder every session.',
     specs: ['25 Servings', 'Net Wt. 425g (14.99oz)', 'Blueberry Flavour', 'Dietary Supplement', 'Mix 1 scoop with 250ml water 20–30 min before training']
+  },
+
+  // ACCESSORIES
+  {
+    id: 'shaker-bottle-700ml',
+    name: 'Protein Shaker Bottle — 700ml',
+    price: 10,
+    category: 'Accessories',
+    image: '/images/accessories/shaker-yellow.jpg',
+    hoverImage: '/images/accessories/shaker-yellow.jpg',
+    description: '700ml premium sports performance protein shake bottle. Engineered with a durable leak-proof lid and internal mixer for smooth, clump-free shakes on the go.',
+    specs: ['700ml Capacity with Measurement Markings', 'BPA-Free & Food-Grade Durable Plastic', 'Leak-Proof Flip Cap & Secure Screw-On Lid', 'Internal Blender Grid for Smooth Mixing', 'Signature Strong Performance Red Branding']
   }
 ];
