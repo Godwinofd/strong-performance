@@ -11,7 +11,7 @@ const Shop: React.FC = () => {
   const [filter, setFilter] = useState<CategoryFilter>('All');
   const { addToCart } = useCart();
 
-  const categories: CategoryFilter[] = ['All', 'T-Shirts', 'Tracksuits', 'Supplements'];
+  const categories: CategoryFilter[] = ['All', 'T-Shirts', 'Tracksuits', 'Supplements', 'Accessories'];
 
   const filteredProducts = useMemo(() => {
     if (filter === 'All') return PRODUCTS;
@@ -26,10 +26,10 @@ const Shop: React.FC = () => {
           <div className="max-w-4xl">
             <span className="text-scarlet font-bold tracking-wider uppercase text-sm mb-4 block">Shop</span>
             <h1 className="text-5xl md:text-8xl font-black mb-6 uppercase tracking-tighter text-white">
-              TRAINING <span className="text-scarlet italic serif-font">APPAREL</span>
+              TRAINING <span className="text-scarlet italic serif-font">GEAR</span> & APPAREL
             </h1>
             <p className="text-steel text-lg md:text-xl leading-relaxed max-w-2xl">
-              Premium training apparel designed for performance and style.
+              Premium training apparel, supplements, and accessories designed for performance and style.
             </p>
           </div>
         </div>
@@ -74,12 +74,12 @@ const Shop: React.FC = () => {
                       alt={product.name}
                       className={`w-full h-full transition-transform duration-500 ${product.category === 'Supplements'
                           ? 'object-cover group-hover:scale-105'
-                          : product.category === 'Tracksuits' || !product.hoverImage
+                          : product.category === 'Tracksuits' || product.category === 'Accessories' || !product.hoverImage
                             ? 'object-contain p-8 group-hover:scale-110'
                             : 'object-contain p-8'
                         }`}
                     />
-                    {product.category !== 'Tracksuits' && product.category !== 'Supplements' && product.hoverImage && (
+                    {product.category !== 'Tracksuits' && product.category !== 'Supplements' && product.category !== 'Accessories' && product.hoverImage && (
                       <img
                         src={product.hoverImage}
                         alt={product.name}
