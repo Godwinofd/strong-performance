@@ -26,17 +26,11 @@ const Shop: React.FC = () => {
           <div className="max-w-4xl">
             <span className="text-scarlet font-bold tracking-wider uppercase text-sm mb-4 block">Shop</span>
             <h1 className="text-5xl md:text-8xl font-black mb-6 uppercase tracking-tighter text-white">
-<<<<<<< HEAD
-              TRAINING <span className="text-scarlet italic serif-font">GEAR</span> & APPAREL
-            </h1>
-            <p className="text-steel text-lg md:text-xl leading-relaxed max-w-2xl">
-              Premium training apparel, supplements, and accessories designed for performance and style.
-=======
               TRAINING <span className="text-scarlet italic serif-font">GEAR & APPAREL</span>
             </h1>
             <p className="text-steel text-lg md:text-xl leading-relaxed max-w-2xl">
-              Premium equipment, training apparel, and supplements designed for elite performance.
->>>>>>> 2ea80d3 (feat: Add SP X-Series Padel Racket pre-order collection, interactive homepage feature, and checkout fixes)
+              Premium equipment, training apparel, supplements, and accessories designed for elite performance.
+
             </p>
           </div>
         </div>
@@ -88,17 +82,11 @@ const Shop: React.FC = () => {
                       alt={product.name}
                       className={`w-full h-full transition-transform duration-500 ${product.category === 'Supplements'
                           ? 'object-cover group-hover:scale-105'
-<<<<<<< HEAD
-                          : product.category === 'Tracksuits' || product.category === 'Accessories' || !product.hoverImage
-                            ? 'object-contain p-8 group-hover:scale-110'
-                            : 'object-contain p-8'
-=======
                           : product.category === 'Padel'
                             ? 'object-contain p-6 group-hover:scale-105'
-                            : product.category === 'Tracksuits' || !product.hoverImage
+                            : product.category === 'Tracksuits' || product.category === 'Accessories' || !product.hoverImage
                               ? 'object-contain p-8 group-hover:scale-110'
                               : 'object-contain p-8'
->>>>>>> 2ea80d3 (feat: Add SP X-Series Padel Racket pre-order collection, interactive homepage feature, and checkout fixes)
                         }`}
                     />
                     {product.category !== 'Tracksuits' && product.category !== 'Supplements' && product.category !== 'Accessories' && product.hoverImage && (

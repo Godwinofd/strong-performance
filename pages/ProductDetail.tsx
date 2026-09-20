@@ -172,11 +172,7 @@ const ProductDetail: React.FC = () => {
             )}
 
             {/* Size Selection — only for apparel */}
-<<<<<<< HEAD
             {isApparel && (
-=======
-            {product.category !== 'Supplements' && product.category !== 'Padel' && (
->>>>>>> 2ea80d3 (feat: Add SP X-Series Padel Racket pre-order collection, interactive homepage feature, and checkout fixes)
               <div>
                 <label className="text-sm font-bold text-white uppercase tracking-wide mb-3 block">
                   Select Size
