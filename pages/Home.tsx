@@ -23,10 +23,20 @@ import { PRODUCTS, PLANS } from '../constants';
 import { useCart } from '../CartContext';
 import ContactForm from '../components/ContactForm';
 
+const padelEditions = [
+  { id: 'padel-racket-gold', name: 'Gold Edition', color: 'bg-amber-400', image: '/images/padel/padel_racket_gold.png', accent: 'Gold' },
+  { id: 'padel-racket-purple', name: 'Purple Edition', color: 'bg-purple-500', image: '/images/padel/padel_racket_purple.png', accent: 'Purple' },
+  { id: 'padel-racket-grey', name: 'Silver Grey Edition', color: 'bg-slate-300', image: '/images/padel/padel_racket_grey.png', accent: 'Silver Grey' },
+  { id: 'padel-racket-black', name: 'Stealth Black Edition', color: 'bg-zinc-800', image: '/images/padel/padel_racket_back.png', accent: 'Stealth Black' },
+];
+
 const Home: React.FC = () => {
   const { addToCart } = useCart();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
+  const [activePadelIndex, setActivePadelIndex] = useState(0);
+
+  const activePadel = padelEditions[activePadelIndex];
 
   useEffect(() => {
     let rafId: number;
@@ -197,6 +207,103 @@ const Home: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Padel Pre-Order Feature Showcase Section */}
+      <section className="py-24 md:py-36 bg-[#0B0B0B] border-y border-white/5 relative overflow-hidden reveal">
+        {/* Subtle Ambient Glow */}
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-scarlet/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+
+            {/* Left: Product Showcase Image */}
+            <div className="lg:col-span-6 flex flex-col items-center">
+              <div className="relative w-full max-w-md aspect-square bg-gradient-to-b from-white/5 to-transparent rounded-[40px] border border-white/10 p-8 flex items-center justify-center shadow-2xl group overflow-hidden">
+                {/* Pre-Order Tag */}
+                <div className="absolute top-6 left-6 bg-scarlet text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg z-10">
+                  LIMITED PRE-ORDER
+                </div>
+
+                <img
+                  key={activePadel.id}
+                  src={activePadel.image}
+                  alt={activePadel.name}
+                  className="w-full h-full object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)] transition-all duration-700 animate-in fade-in zoom-in-95 group-hover:scale-105"
+                />
+              </div>
+
+              {/* Interactive Color Switcher */}
+              <div className="flex items-center gap-3 mt-8 bg-white/5 p-3 rounded-full border border-white/10 backdrop-blur-md">
+                <span className="text-[10px] font-black text-steel uppercase tracking-widest pl-3 pr-2">Editions:</span>
+                {padelEditions.map((edition, idx) => (
+                  <button
+                    key={edition.id}
+                    onClick={() => setActivePadelIndex(idx)}
+                    className={`w-7 h-7 rounded-full transition-all duration-300 flex items-center justify-center ${edition.color} ${activePadelIndex === idx ? 'ring-2 ring-white scale-125 shadow-lg' : 'opacity-60 hover:opacity-100'}`}
+                    title={edition.name}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Content & Pre-Order Info */}
+            <div className="lg:col-span-6 space-y-8 text-left">
+              <div>
+                <span className="text-scarlet font-black tracking-[0.4em] uppercase text-[10px] mb-4 block">EXCLUSIVELY AT STRONG PERFORMANCE</span>
+                <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white leading-none">
+                  SP X-SERIES <br />
+                  <span className="text-scarlet italic serif-font">PADEL RACKET</span>
+                </h2>
+              </div>
+
+              <p className="text-steel text-base md:text-lg leading-relaxed font-medium">
+                Precision-engineered with 100% 3K Carbon Fiber and an EVA Soft Core. Built for players who demand absolute control, zero vibration, and maximum explosive power on the court.
+              </p>
+
+              {/* Feature Specs Pills */}
+              <div className="grid grid-cols-2 gap-4 py-4 border-y border-white/10">
+                <div>
+                  <span className="block text-[9px] font-black text-steel uppercase tracking-widest">Active Edition</span>
+                  <span className="text-sm font-bold text-white uppercase">{activePadel.name}</span>
+                </div>
+                <div>
+                  <span className="block text-[9px] font-black text-steel uppercase tracking-widest">Pre-Order Price</span>
+                  <span className="text-2xl font-black text-scarlet">£75</span>
+                </div>
+                <div>
+                  <span className="block text-[9px] font-black text-steel uppercase tracking-widest">Material</span>
+                  <span className="text-xs font-bold text-white uppercase">3K Carbon Fiber</span>
+                </div>
+                <div>
+                  <span className="block text-[9px] font-black text-steel uppercase tracking-widest">Frame Shape</span>
+                  <span className="text-xs font-bold text-white uppercase">Teardrop (Hybrid)</span>
+                </div>
+              </div>
+
+              {/* CTA Actions */}
+              <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+                <Link
+                  to={`/product/${activePadel.id}`}
+                  className="cta-base cta-primary w-full sm:w-auto justify-center"
+                >
+                  PRE-ORDER {activePadel.accent.toUpperCase()}
+                  <span className="cta-icon-circle">
+                    <ArrowRight className="w-5 h-5" />
+                  </span>
+                </Link>
+                <Link
+                  to="/shop"
+                  className="cta-base cta-secondary w-full sm:w-auto justify-center"
+                >
+                  VIEW ALL GEAR
+                </Link>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

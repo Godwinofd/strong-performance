@@ -26,5 +26,9 @@ export const PRODUCTS_DATA = [
     { id: 'addon-meal', name: 'Custom Meal Prep', price: 25 },
     { id: 'addon-form', name: 'Form Review', price: 30 },
     { id: 'preworkout-mango', name: 'Pre-Workout Powder — Mango', price: 25 },
-    { id: 'preworkout-blueberry', name: 'Pre-Workout Powder — Blueberry', price: 25 }
+    { id: 'preworkout-blueberry', name: 'Pre-Workout Powder — Blueberry', price: 25 },
+    { id: 'padel-racket-gold', name: 'SP X-Series Padel Racket — Gold Edition', price: 75 },
+    { id: 'padel-racket-purple', name: 'SP X-Series Padel Racket — Purple Edition', price: 75 },
+    { id: 'padel-racket-grey', name: 'SP X-Series Padel Racket — Silver Grey Edition', price: 75 },
+    { id: 'padel-racket-black', name: 'SP X-Series Padel Racket — Stealth Black Edition', price: 75 }
 ];

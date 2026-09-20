@@ -11,7 +11,7 @@ const Shop: React.FC = () => {
   const [filter, setFilter] = useState<CategoryFilter>('All');
   const { addToCart } = useCart();
 
-  const categories: CategoryFilter[] = ['All', 'T-Shirts', 'Tracksuits', 'Supplements', 'Accessories'];
+  const categories: CategoryFilter[] = ['All', 'Padel', 'T-Shirts', 'Tracksuits', 'Supplements', 'Accessories'];
 
   const filteredProducts = useMemo(() => {
     if (filter === 'All') return PRODUCTS;
@@ -26,10 +26,17 @@ const Shop: React.FC = () => {
           <div className="max-w-4xl">
             <span className="text-scarlet font-bold tracking-wider uppercase text-sm mb-4 block">Shop</span>
             <h1 className="text-5xl md:text-8xl font-black mb-6 uppercase tracking-tighter text-white">
+<<<<<<< HEAD
               TRAINING <span className="text-scarlet italic serif-font">GEAR</span> & APPAREL
             </h1>
             <p className="text-steel text-lg md:text-xl leading-relaxed max-w-2xl">
               Premium training apparel, supplements, and accessories designed for performance and style.
+=======
+              TRAINING <span className="text-scarlet italic serif-font">GEAR & APPAREL</span>
+            </h1>
+            <p className="text-steel text-lg md:text-xl leading-relaxed max-w-2xl">
+              Premium equipment, training apparel, and supplements designed for elite performance.
+>>>>>>> 2ea80d3 (feat: Add SP X-Series Padel Racket pre-order collection, interactive homepage feature, and checkout fixes)
             </p>
           </div>
         </div>
@@ -65,25 +72,40 @@ const Shop: React.FC = () => {
               return (
                 <div
                   key={product.id}
-                  className="group bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-scarlet/50 transition-all hover:shadow-2xl"
+                  className="group bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-scarlet/50 transition-all hover:shadow-2xl flex flex-col justify-between"
                 >
                   {/* Product Image */}
                   <Link to={`/product/${product.id}`} className="block relative aspect-square bg-white/5 overflow-hidden">
+                    {/* Pre-Order badge */}
+                    {product.isPreOrder && (
+                      <div className="absolute top-3 left-3 bg-scarlet text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-lg z-10">
+                        Pre-Order
+                      </div>
+                    )}
+
                     <img
                       src={product.image}
                       alt={product.name}
                       className={`w-full h-full transition-transform duration-500 ${product.category === 'Supplements'
                           ? 'object-cover group-hover:scale-105'
+<<<<<<< HEAD
                           : product.category === 'Tracksuits' || product.category === 'Accessories' || !product.hoverImage
                             ? 'object-contain p-8 group-hover:scale-110'
                             : 'object-contain p-8'
+=======
+                          : product.category === 'Padel'
+                            ? 'object-contain p-6 group-hover:scale-105'
+                            : product.category === 'Tracksuits' || !product.hoverImage
+                              ? 'object-contain p-8 group-hover:scale-110'
+                              : 'object-contain p-8'
+>>>>>>> 2ea80d3 (feat: Add SP X-Series Padel Racket pre-order collection, interactive homepage feature, and checkout fixes)
                         }`}
                     />
                     {product.category !== 'Tracksuits' && product.category !== 'Supplements' && product.category !== 'Accessories' && product.hoverImage && (
                       <img
                         src={product.hoverImage}
                         alt={product.name}
-                        className="absolute inset-0 w-full h-full object-contain p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        className={`absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${product.category === 'Padel' ? 'object-contain p-6' : 'object-contain p-8'}`}
                       />
                     )}
 
@@ -96,17 +118,19 @@ const Shop: React.FC = () => {
                   </Link>
 
                   {/* Product Info */}
-                  <div className="p-6">
-                    <Link to={`/product/${product.id}`}>
-                      <h3 className="text-lg font-bold text-white mb-1 group-hover:text-scarlet transition-colors">
-                        {product.name}
-                      </h3>
-                    </Link>
+                  <div className="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                      <Link to={`/product/${product.id}`}>
+                        <h3 className="text-lg font-bold text-white mb-1 group-hover:text-scarlet transition-colors">
+                          {product.name}
+                        </h3>
+                      </Link>
 
-                    {/* Variant hint */}
-                    {isGrouped && (
-                      <p className="text-steel text-xs mb-2">Large Logo · Small Logo</p>
-                    )}
+                      {/* Variant hint */}
+                      {isGrouped && (
+                        <p className="text-steel text-xs mb-2">Large Logo · Small Logo</p>
+                      )}
+                    </div>
 
                     <div className="flex items-center justify-between mt-4">
                       <span className="text-2xl font-bold text-white">£{product.price}</span>
@@ -130,10 +154,10 @@ const Shop: React.FC = () => {
                             quantity: 1,
                             type: 'product'
                           })}
-                          className="bg-scarlet text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-scarlet/90 transition-all hover:scale-105 flex items-center gap-2"
+                          className="bg-scarlet text-white px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider hover:bg-scarlet/90 transition-all hover:scale-105 flex items-center gap-1.5"
                         >
                           <Plus className="w-4 h-4" />
-                          Add
+                          {product.isPreOrder ? 'Pre-Order' : 'Add'}
                         </button>
                       )}
                     </div>

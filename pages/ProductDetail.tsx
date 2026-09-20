@@ -72,11 +72,20 @@ const ProductDetail: React.FC = () => {
           {/* ── Left: Images ── */}
           <div className="space-y-6">
             <div className="relative aspect-square overflow-hidden rounded-3xl bg-white/5 border border-white/10 transition-all duration-500">
+              {product.isPreOrder && (
+                <div className="absolute top-4 left-4 z-10 bg-scarlet text-white text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-md shadow-xl">
+                  Pre-Order
+                </div>
+              )}
               <img
                 key={heroImage}
                 src={heroImage}
                 alt={product.name}
-                className={`w-full h-full duration-700 transition-all ${product.category === 'Supplements' ? 'object-cover' : 'object-contain p-12'
+                className={`w-full h-full duration-700 transition-all ${product.category === 'Supplements'
+                    ? 'object-cover'
+                    : product.category === 'Padel'
+                      ? 'object-contain p-6'
+                      : 'object-contain p-12'
                   }`}
               />
             </div>
@@ -105,7 +114,7 @@ const ProductDetail: React.FC = () => {
                 {plainImages.map((img, idx) => (
                   <button
                     key={idx}
-                    className="w-24 h-24 rounded-xl overflow-hidden border-2 border-white/10 opacity-50"
+                    className="w-24 h-24 rounded-xl overflow-hidden border-2 border-white/10 opacity-50 hover:opacity-100 transition-opacity"
                   >
                     <img src={img} alt="Thumbnail" className="w-full h-full object-contain bg-white/5 p-2" />
                   </button>
@@ -117,12 +126,19 @@ const ProductDetail: React.FC = () => {
           {/* ── Right: Product Info ── */}
           <div className="space-y-8">
             <div>
-              <span className="text-scarlet font-bold tracking-wider uppercase text-sm">{product.category}</span>
+              <div className="flex items-center gap-3">
+                <span className="text-scarlet font-bold tracking-wider uppercase text-sm">{product.category}</span>
+                {product.isPreOrder && (
+                  <span className="bg-scarlet/20 text-scarlet border border-scarlet/40 text-[10px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-full">
+                    Pre-Order Item
+                  </span>
+                )}
+              </div>
               <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight mt-2 mb-4">
                 {product.name}
               </h1>
               <p className="text-steel text-lg leading-relaxed">
-                {product.description || 'Premium training apparel designed for performance.'}
+                {product.description || 'Premium training gear designed for elite performance.'}
               </p>
             </div>
 
@@ -156,7 +172,11 @@ const ProductDetail: React.FC = () => {
             )}
 
             {/* Size Selection — only for apparel */}
+<<<<<<< HEAD
             {isApparel && (
+=======
+            {product.category !== 'Supplements' && product.category !== 'Padel' && (
+>>>>>>> 2ea80d3 (feat: Add SP X-Series Padel Racket pre-order collection, interactive homepage feature, and checkout fixes)
               <div>
                 <label className="text-sm font-bold text-white uppercase tracking-wide mb-3 block">
                   Select Size
@@ -212,7 +232,11 @@ const ProductDetail: React.FC = () => {
                   }`}
               >
                 <ShoppingCart className="w-5 h-5" />
-                {hasVariants && !selectedVariant ? 'Select a Logo Style First' : 'Add to Collection'}
+                {hasVariants && !selectedVariant
+                  ? 'Select a Logo Style First'
+                  : product.isPreOrder
+                    ? 'Pre-Order Now'
+                    : 'Add to Collection'}
               </button>
 
               <button
@@ -224,7 +248,7 @@ const ProductDetail: React.FC = () => {
                     : 'bg-white text-black hover:bg-white/90 hover:scale-105'
                   }`}
               >
-                Buy Now
+                {product.isPreOrder ? 'Pre-Order & Checkout' : 'Buy Now'}
               </button>
             </div>
 

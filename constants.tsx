@@ -68,6 +68,52 @@ export const PLANS: Plan[] = [
 ];
 
 export const PRODUCTS: Product[] = [
+  // PADEL RACKETS
+  {
+    id: 'padel-racket-gold',
+    name: 'SP X-Series Padel Racket — Gold Edition',
+    price: 75,
+    category: 'Padel',
+    image: '/images/padel/padel_racket_gold.png',
+    hoverImage: '/images/padel/padel_racket_back.png',
+    description: 'High-performance carbon fiber padel racket engineered for maximum power, control, and precision. Gold accent edition.',
+    specs: ['100% 3K Carbon Fiber Surface', 'EVA Soft Core for Superior Touch', 'Teardrop Shape (Optimal Balance)', 'Weight: 360g – 375g', 'Ergonomic SP Grip & Wrist Strap'],
+    isPreOrder: true
+  },
+  {
+    id: 'padel-racket-purple',
+    name: 'SP X-Series Padel Racket — Purple Edition',
+    price: 75,
+    category: 'Padel',
+    image: '/images/padel/padel_racket_purple.png',
+    hoverImage: '/images/padel/padel_racket_back.png',
+    description: 'High-performance carbon fiber padel racket engineered for maximum power, control, and precision. Vibrant purple edition.',
+    specs: ['100% 3K Carbon Fiber Surface', 'EVA Soft Core for Superior Touch', 'Teardrop Shape (Optimal Balance)', 'Weight: 360g – 375g', 'Ergonomic SP Grip & Wrist Strap'],
+    isPreOrder: true
+  },
+  {
+    id: 'padel-racket-grey',
+    name: 'SP X-Series Padel Racket — Silver Grey Edition',
+    price: 75,
+    category: 'Padel',
+    image: '/images/padel/padel_racket_grey.png',
+    hoverImage: '/images/padel/padel_racket_back.png',
+    description: 'High-performance carbon fiber padel racket engineered for maximum power, control, and precision. Silver grey edition.',
+    specs: ['100% 3K Carbon Fiber Surface', 'EVA Soft Core for Superior Touch', 'Teardrop Shape (Optimal Balance)', 'Weight: 360g – 375g', 'Ergonomic SP Grip & Wrist Strap'],
+    isPreOrder: true
+  },
+  {
+    id: 'padel-racket-black',
+    name: 'SP X-Series Padel Racket — Stealth Black Edition',
+    price: 75,
+    category: 'Padel',
+    image: '/images/padel/padel_racket_back.png',
+    hoverImage: '/images/padel/padel_racket_gold.png',
+    description: 'High-performance carbon fiber padel racket engineered for maximum power, control, and precision. Stealth black edition.',
+    specs: ['100% 3K Carbon Fiber Surface', 'EVA Soft Core for Superior Touch', 'Teardrop Shape (Optimal Balance)', 'Weight: 360g – 375g', 'Ergonomic SP Grip & Wrist Strap'],
+    isPreOrder: true
+  },
+
   // T-SHIRTS - grouped by colour (one card per colour, variants = logo styles)
   {
     id: 'tshirt-black',

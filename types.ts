@@ -17,7 +17,7 @@ export interface Plan {
   icon: string;
 }
 
-export type ProductCategory = 'T-Shirts' | 'Tracksuits' | 'Supplements' | 'Accessories';
+export type ProductCategory = 'Padel' | 'T-Shirts' | 'Tracksuits' | 'Supplements' | 'Accessories';
 
 export interface ProductVariant {
   id: string;       // original product id used for cart
@@ -35,6 +35,7 @@ export interface Product {
   description?: string;
   specs?: string[];
   isComingSoon?: boolean;
+  isPreOrder?: boolean;
   /** When set, this card groups multiple purchasable variants (e.g. logo styles) */
   variants?: ProductVariant[];
 }
